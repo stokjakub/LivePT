@@ -1,0 +1,16 @@
+<div class="col-md-4" ng-repeat="stop in stops">
+	<div class="panel panel-primary">
+		<div class="panel-heading">{{stop.NAME}}</div>
+		
+		<div class="panel-body">
+				<h4>
+					Price: 
+				</h4>
+				{{ stop.WGS84_LAT }}
+				<div>
+					<button class="btn btn-primary" ng-click="buyme(stops)">Buy me</button>
+				</div>
+		</div>
+
+	</div>
+</div>
