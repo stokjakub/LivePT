@@ -2,8 +2,7 @@
 var express 	 	= require('express'),
 	path 			= require('path'),
 	mongoose		= require('mongoose'),
-	bodyParser		= require('body-parser'),
-	databaseName	= 'angular_mongodb';
+	bodyParser		= require('body-parser');
 
 // Express setup 
 var app = express();

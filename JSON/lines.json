@@ -1,0 +1,1322 @@
+[
+  {
+    "LINE_ID": 214433717,
+    "NAME_OF_LINE": "D",
+    "ORDER": 10,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433953,
+    "NAME_OF_LINE": "N20",
+    "ORDER": 320,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusNight",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433955,
+    "NAME_OF_LINE": "N23",
+    "ORDER": 323,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusNight",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433957,
+    "NAME_OF_LINE": "N25",
+    "ORDER": 325,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusNight",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433961,
+    "NAME_OF_LINE": "N26",
+    "ORDER": 326,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusNight",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433963,
+    "NAME_OF_LINE": "N29",
+    "ORDER": 329,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusNight",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433965,
+    "NAME_OF_LINE": "N31",
+    "ORDER": 331,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusNight",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433967,
+    "NAME_OF_LINE": "N35",
+    "ORDER": 335,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusNight",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433969,
+    "NAME_OF_LINE": "N38",
+    "ORDER": 338,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusNight",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433971,
+    "NAME_OF_LINE": "N41",
+    "ORDER": 341,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusNight",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433973,
+    "NAME_OF_LINE": "N43",
+    "ORDER": 343,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusNight",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433975,
+    "NAME_OF_LINE": "N46",
+    "ORDER": 346,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusNight",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433977,
+    "NAME_OF_LINE": "N49",
+    "ORDER": 349,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusNight",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433951,
+    "NAME_OF_LINE": "N6",
+    "ORDER": 306,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusNight",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433979,
+    "NAME_OF_LINE": "N60",
+    "ORDER": 360,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusNight",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433981,
+    "NAME_OF_LINE": "N62",
+    "ORDER": 362,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusNight",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433983,
+    "NAME_OF_LINE": "N64",
+    "ORDER": 364,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusNight",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433985,
+    "NAME_OF_LINE": "N66",
+    "ORDER": 365,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusNight",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433987,
+    "NAME_OF_LINE": "N67",
+    "ORDER": 367,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusNight",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433989,
+    "NAME_OF_LINE": "N71",
+    "ORDER": 371,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusNight",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433991,
+    "NAME_OF_LINE": "N75",
+    "ORDER": 375,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusNight",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433721,
+    "NAME_OF_LINE": "O",
+    "ORDER": 11,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214432066,
+    "NAME_OF_LINE": "S1",
+    "ORDER": 400,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptTrainS",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214432069,
+    "NAME_OF_LINE": "S2",
+    "ORDER": 401,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptTrainS",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214432071,
+    "NAME_OF_LINE": "S3",
+    "ORDER": 402,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptTrainS",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214432201,
+    "NAME_OF_LINE": "S40",
+    "ORDER": 408,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptTrainS",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214432203,
+    "NAME_OF_LINE": "S45",
+    "ORDER": 409,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptTrainS",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214432205,
+    "NAME_OF_LINE": "S50",
+    "ORDER": 410,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptTrainS",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214432207,
+    "NAME_OF_LINE": "S60",
+    "ORDER": 411,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptTrainS",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214432077,
+    "NAME_OF_LINE": "S7",
+    "ORDER": 405,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptTrainS",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214432209,
+    "NAME_OF_LINE": "S80",
+    "ORDER": 412,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptTrainS",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433687,
+    "NAME_OF_LINE": "U1",
+    "ORDER": 1,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptMetro",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433689,
+    "NAME_OF_LINE": "U2",
+    "ORDER": 2,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptMetro",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433691,
+    "NAME_OF_LINE": "U3",
+    "ORDER": 3,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptMetro",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433693,
+    "NAME_OF_LINE": "U4",
+    "ORDER": 4,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptMetro",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433695,
+    "NAME_OF_LINE": "U6",
+    "ORDER": 5,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptMetro",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 219528647,
+    "NAME_OF_LINE": "VRT",
+    "ORDER": 0,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTramVRT",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 219434256,
+    "NAME_OF_LINE": "WLB",
+    "ORDER": 0,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptTramWLB",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433697,
+    "NAME_OF_LINE": 1,
+    "ORDER": 12,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433787,
+    "NAME_OF_LINE": "1A",
+    "ORDER": 100,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433723,
+    "NAME_OF_LINE": 10,
+    "ORDER": 17,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433809,
+    "NAME_OF_LINE": "10A",
+    "ORDER": 111,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433811,
+    "NAME_OF_LINE": "11A",
+    "ORDER": 112,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433813,
+    "NAME_OF_LINE": "11B",
+    "ORDER": 113,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433815,
+    "NAME_OF_LINE": "12A",
+    "ORDER": 114,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433817,
+    "NAME_OF_LINE": "13A",
+    "ORDER": 115,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433821,
+    "NAME_OF_LINE": "14A",
+    "ORDER": 116,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433823,
+    "NAME_OF_LINE": "15A",
+    "ORDER": 117,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433827,
+    "NAME_OF_LINE": "16A",
+    "ORDER": 118,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433829,
+    "NAME_OF_LINE": "17A",
+    "ORDER": 119,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433727,
+    "NAME_OF_LINE": 18,
+    "ORDER": 18,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433831,
+    "NAME_OF_LINE": "19A",
+    "ORDER": 120,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433701,
+    "NAME_OF_LINE": 2,
+    "ORDER": 13,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433789,
+    "NAME_OF_LINE": "2A",
+    "ORDER": 101,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 219364982,
+    "NAME_OF_LINE": "20A",
+    "ORDER": 121,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 215038489,
+    "NAME_OF_LINE": "22A",
+    "ORDER": 122,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433835,
+    "NAME_OF_LINE": "24A",
+    "ORDER": 123,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214578207,
+    "NAME_OF_LINE": 25,
+    "ORDER": 25,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433837,
+    "NAME_OF_LINE": "25A",
+    "ORDER": 124,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433731,
+    "NAME_OF_LINE": 26,
+    "ORDER": 26,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433839,
+    "NAME_OF_LINE": "26A",
+    "ORDER": 125,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433841,
+    "NAME_OF_LINE": "27A",
+    "ORDER": 126,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433843,
+    "NAME_OF_LINE": "28A",
+    "ORDER": 127,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433845,
+    "NAME_OF_LINE": "29A",
+    "ORDER": 128,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433791,
+    "NAME_OF_LINE": "3A",
+    "ORDER": 103,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433733,
+    "NAME_OF_LINE": 30,
+    "ORDER": 30,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433847,
+    "NAME_OF_LINE": "30A",
+    "ORDER": 129,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433735,
+    "NAME_OF_LINE": 31,
+    "ORDER": 31,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433849,
+    "NAME_OF_LINE": "31A",
+    "ORDER": 130,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433851,
+    "NAME_OF_LINE": "32A",
+    "ORDER": 131,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433737,
+    "NAME_OF_LINE": 33,
+    "ORDER": 33,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433855,
+    "NAME_OF_LINE": "33A",
+    "ORDER": 132,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214434063,
+    "NAME_OF_LINE": "34A",
+    "ORDER": 133,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433859,
+    "NAME_OF_LINE": "35A",
+    "ORDER": 134,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433861,
+    "NAME_OF_LINE": "36A",
+    "ORDER": 135,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433741,
+    "NAME_OF_LINE": 37,
+    "ORDER": 37,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433863,
+    "NAME_OF_LINE": "37A",
+    "ORDER": 136,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433743,
+    "NAME_OF_LINE": 38,
+    "ORDER": 38,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433865,
+    "NAME_OF_LINE": "38A",
+    "ORDER": 137,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433867,
+    "NAME_OF_LINE": "39A",
+    "ORDER": 138,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433793,
+    "NAME_OF_LINE": "4A",
+    "ORDER": 104,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433747,
+    "NAME_OF_LINE": 40,
+    "ORDER": 40,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433869,
+    "NAME_OF_LINE": "40A",
+    "ORDER": 139,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433751,
+    "NAME_OF_LINE": 41,
+    "ORDER": 41,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433873,
+    "NAME_OF_LINE": "41A",
+    "ORDER": 140,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433755,
+    "NAME_OF_LINE": 42,
+    "ORDER": 42,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433875,
+    "NAME_OF_LINE": "42A",
+    "ORDER": 141,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433759,
+    "NAME_OF_LINE": 43,
+    "ORDER": 43,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433877,
+    "NAME_OF_LINE": "43A",
+    "ORDER": 142,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214537132,
+    "NAME_OF_LINE": "43B",
+    "ORDER": 143,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433761,
+    "NAME_OF_LINE": 44,
+    "ORDER": 44,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 219364775,
+    "NAME_OF_LINE": "45A",
+    "ORDER": 145,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433765,
+    "NAME_OF_LINE": 46,
+    "ORDER": 46,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 219364713,
+    "NAME_OF_LINE": "46A",
+    "ORDER": 146,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 219364886,
+    "NAME_OF_LINE": "46B",
+    "ORDER": 147,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433879,
+    "NAME_OF_LINE": "47A",
+    "ORDER": 148,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214578163,
+    "NAME_OF_LINE": "47B",
+    "ORDER": 149,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433881,
+    "NAME_OF_LINE": "48A",
+    "ORDER": 150,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433767,
+    "NAME_OF_LINE": 49,
+    "ORDER": 49,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433883,
+    "NAME_OF_LINE": "49A",
+    "ORDER": 151,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433705,
+    "NAME_OF_LINE": 5,
+    "ORDER": 14,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433795,
+    "NAME_OF_LINE": "5A",
+    "ORDER": 105,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214536307,
+    "NAME_OF_LINE": "5B",
+    "ORDER": 106,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 219849554,
+    "NAME_OF_LINE": "50A",
+    "ORDER": 152,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433887,
+    "NAME_OF_LINE": "50B",
+    "ORDER": 153,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433889,
+    "NAME_OF_LINE": "51A",
+    "ORDER": 154,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433771,
+    "NAME_OF_LINE": 52,
+    "ORDER": 52,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433891,
+    "NAME_OF_LINE": "52A",
+    "ORDER": 155,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433893,
+    "NAME_OF_LINE": "52B",
+    "ORDER": 156,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 219187213,
+    "NAME_OF_LINE": "56A",
+    "ORDER": 161,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 219187315,
+    "NAME_OF_LINE": "56B",
+    "ORDER": 162,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433895,
+    "NAME_OF_LINE": "57A",
+    "ORDER": 163,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433773,
+    "NAME_OF_LINE": 58,
+    "ORDER": 58,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 219187420,
+    "NAME_OF_LINE": "58A",
+    "ORDER": 164,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433897,
+    "NAME_OF_LINE": "59A",
+    "ORDER": 165,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433709,
+    "NAME_OF_LINE": 6,
+    "ORDER": 15,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433777,
+    "NAME_OF_LINE": 60,
+    "ORDER": 60,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433903,
+    "NAME_OF_LINE": "60A",
+    "ORDER": 166,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214789003,
+    "NAME_OF_LINE": "61A",
+    "ORDER": 167,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433781,
+    "NAME_OF_LINE": 62,
+    "ORDER": 62,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433905,
+    "NAME_OF_LINE": "62A",
+    "ORDER": 168,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433909,
+    "NAME_OF_LINE": "63A",
+    "ORDER": 169,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433911,
+    "NAME_OF_LINE": "64A",
+    "ORDER": 170,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433913,
+    "NAME_OF_LINE": "65A",
+    "ORDER": 171,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433915,
+    "NAME_OF_LINE": "66A",
+    "ORDER": 172,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433783,
+    "NAME_OF_LINE": 67,
+    "ORDER": 67,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433917,
+    "NAME_OF_LINE": "67A",
+    "ORDER": 173,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 218727158,
+    "NAME_OF_LINE": "67E",
+    "ORDER": 173,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433919,
+    "NAME_OF_LINE": "68A",
+    "ORDER": 174,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 218727201,
+    "NAME_OF_LINE": "68B",
+    "ORDER": 175,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433921,
+    "NAME_OF_LINE": "69A",
+    "ORDER": 176,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433797,
+    "NAME_OF_LINE": "7A",
+    "ORDER": 107,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433801,
+    "NAME_OF_LINE": "7B",
+    "ORDER": 108,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433923,
+    "NAME_OF_LINE": "70A",
+    "ORDER": 177,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 215281204,
+    "NAME_OF_LINE": 71,
+    "ORDER": 71,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214536988,
+    "NAME_OF_LINE": "71A",
+    "ORDER": 178,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433925,
+    "NAME_OF_LINE": "72A",
+    "ORDER": 179,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433927,
+    "NAME_OF_LINE": "73A",
+    "ORDER": 180,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433929,
+    "NAME_OF_LINE": "74A",
+    "ORDER": 181,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433931,
+    "NAME_OF_LINE": "76A",
+    "ORDER": 182,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433933,
+    "NAME_OF_LINE": "77A",
+    "ORDER": 183,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 218957255,
+    "NAME_OF_LINE": "79A",
+    "ORDER": 184,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433803,
+    "NAME_OF_LINE": "8A",
+    "ORDER": 109,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433935,
+    "NAME_OF_LINE": "80A",
+    "ORDER": 186,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 215282630,
+    "NAME_OF_LINE": "82A",
+    "ORDER": 187,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 215096034,
+    "NAME_OF_LINE": "84A",
+    "ORDER": 188,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 215096036,
+    "NAME_OF_LINE": "85A",
+    "ORDER": 189,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433939,
+    "NAME_OF_LINE": "86A",
+    "ORDER": 190,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433941,
+    "NAME_OF_LINE": "87A",
+    "ORDER": 191,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433943,
+    "NAME_OF_LINE": "88A",
+    "ORDER": 192,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 215096144,
+    "NAME_OF_LINE": "88B",
+    "ORDER": 193,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433947,
+    "NAME_OF_LINE": "89A",
+    "ORDER": 194,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433713,
+    "NAME_OF_LINE": 9,
+    "ORDER": 16,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptTram",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214433807,
+    "NAME_OF_LINE": "9A",
+    "ORDER": 110,
+    "REALTIME": 1,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214434095,
+    "NAME_OF_LINE": "92A",
+    "ORDER": 195,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214578059,
+    "NAME_OF_LINE": "92B",
+    "ORDER": 196,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214434097,
+    "NAME_OF_LINE": "93A",
+    "ORDER": 197,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214434101,
+    "NAME_OF_LINE": "94A",
+    "ORDER": 198,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 215096434,
+    "NAME_OF_LINE": "95A",
+    "ORDER": 199,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214789127,
+    "NAME_OF_LINE": "95B",
+    "ORDER": 200,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 215096386,
+    "NAME_OF_LINE": "96A",
+    "ORDER": 201,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214434109,
+    "NAME_OF_LINE": "97A",
+    "ORDER": 202,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214434111,
+    "NAME_OF_LINE": "98A",
+    "ORDER": 203,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 215096838,
+    "NAME_OF_LINE": "99A",
+    "ORDER": 204,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  },
+  {
+    "LINE_ID": 214434113,
+    "NAME_OF_LINE": "99B",
+    "ORDER": 205,
+    "REALTIME": 0,
+    "MEANS_OF_TRANSPORT": "ptBusCity",
+    "STAND": 0
+  }
+]
