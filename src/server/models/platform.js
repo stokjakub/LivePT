@@ -14,6 +14,6 @@ var schema = {
     STAND: Number
 };
 
-var Steigen = mongoose.model("Steigen", schema);
+var Platforms = mongoose.model("Platforms", schema);
 
-module.exports = Steigen;
+module.exports = Platforms;

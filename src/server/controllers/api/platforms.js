@@ -1,7 +1,7 @@
-var Steigen = require('../../models/steigen');
+var Platforms = require('../../models/platforms');
 // Wrap all the methods in an object
 
-var steigen = {
+var platforms= {
     /*
      read: function(req, res, next){
      res.json({type: "Read", id: req.params.id});
@@ -17,7 +17,7 @@ var steigen = {
      },
      */
     getAll: function(req, res, next){
-        Steigen.find(function(err, data){
+        Platforms.find(function(err, data){
             if(err) console.error;
             res.json(data);
         })
@@ -25,4 +25,4 @@ var steigen = {
 };
 
 // Return the object
-module.exports = steigen;
+module.exports = platforms;
