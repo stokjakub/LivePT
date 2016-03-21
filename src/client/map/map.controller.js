@@ -1,6 +1,9 @@
 
 
 
+
+
+
 var map = L.map('map').setView([48.200, 16.366], 13); // location of Vienna
 
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar'}).addTo(map);

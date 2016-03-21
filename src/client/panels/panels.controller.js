@@ -1,9 +1,9 @@
 (function(){
 
 	angular
-		.module("Main.panel_1", [])
+		.module("Main.panels", [])
 		.controller("panel_1Controller", panel_1Controller)
-		.directive("panel_1Widget", panel_1Widget);
+		.directive("panel_1Widget", stopsWidget);
 
 	function panel_1Controller($scope, panel_1Service){
 		
@@ -11,13 +11,13 @@
 			$scope.stops = data;
 		};
 
-		stopsService.getStops()
+        panel_1Service.getStops()
 			.then(modelStops);
 	}
 
-	function panel_1Widget(){
+	function stopsWidget(){
 		var widget = {
-			templateUrl: "./stops/panel_1.html",
+			templateUrl: "./panels/panels.widget.html",
 			restrict: "E",
 			controller: function($scope){
 				$scope.buyme = function(stops){

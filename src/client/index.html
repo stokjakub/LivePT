@@ -16,7 +16,7 @@
 		<h1>More Beer Here</h1>
 
 		<div ng-controller="stopsController">
-			<stops-widget></stops-widget>
+			<panels-widget></panels-widget>
 		</div>
 	</div>
     -->
@@ -51,7 +51,7 @@
 
 
 
-                <div ng-controller="stopsController">
+                <div ng-controller="panel_1Controller">
                     <div ng-repeat="stop in stops">
                         <ul>
                             <li>{{stop.NAME}}</li>
@@ -78,15 +78,16 @@
 
 
 	
-	<script src="node_modules/angular/angular.min.js"></script>
+	<script src="node_modules/angular/angular.js"></script> <!-- angular.min.js -->
+
 	<script src="app.module.js"></script>
 
-    <script src="leaflet/leaflet.js"></script>
+    <script src="map/map.service.js"></script>
+    <script src="map/map.controller.js"></script>
 
-	<script src="stops/stops.service.js"></script>
-	<script src="stops/stops.controller.js"></script>
+	<script src="panels/panels.service.js"></script>
+	<script src="panels/panels.controller.js"></script>
 
-    <script src="panel_1/panel_1.service.js"></script>
-    <script src="panel_1/panel_1.controller.js"></script>
+
 </body>
 </html>

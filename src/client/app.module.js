@@ -3,7 +3,8 @@
 
     angular
         .module('Main', [
-            'Main.stops'
+            'Main.panels'
+            //'Main.map'
             ]
         );
 }());

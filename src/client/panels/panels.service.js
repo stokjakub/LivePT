@@ -1,9 +1,9 @@
 (function(){
 
-	var stopsService = function($http){
+	var panel_1Service = function($http){
 
 		var getStops = function(){
-            return $http.get("/api/stops")
+            return $http.get("get_all_stops")
                 .then(function(response){
                     console.log(response.data);
                     return response.data;
@@ -18,6 +18,6 @@
 
 	angular
 		.module("Main")
-		.factory("stopsService", stopsService);
+		.factory("panel_1Service", panel_1Service);
 
 }());
