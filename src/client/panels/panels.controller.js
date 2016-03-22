@@ -26,7 +26,8 @@
 
         $scope.loadStopsToMap = function(){
             //mapService.addMarkers(data.stops);
-            mapService.addCircles(data.stops);
+            //mapService.addCircles(data.stops);
+            mapService.addCircleMarkers(data.stops);
 
         };
 	}
