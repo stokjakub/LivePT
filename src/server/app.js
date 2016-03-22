@@ -15,7 +15,7 @@ var router 	= express.Router();
 var stops = require('./controllers/api/stops');
 
 // Get all stops
-router.get('get_all_stops', stops.getAll);
+router.get('/get_all_stops', stops.getAll);
 
 // Create a product
 //router.post('/api/product', product.create);

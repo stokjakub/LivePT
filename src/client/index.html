@@ -42,32 +42,27 @@
 
 
         <div id="content">
-            <div id="left">
-                <div style="height: 100%;">
-                    <div id="map"></div>
+            <div ng-controller="mapController">
+                <div id="left">
+                    <div style="height: 100%;">
+                        <div id="map"></div>
+                    </div>
                 </div>
             </div>
             <div id="right">
 
-
-
                 <div ng-controller="panel_1Controller">
-                    <div ng-repeat="stop in stops">
-                        <ul>
-                            <li>{{stop.NAME}}</li>
-                        </ul>
-                    </div>
+
+                <input type="button" value="Load" ng-click="loadStopsToMap()">
+
+
+
+
+
                 </div>
 
 
-
-
-
-
-
             </div>
-
-
             <div id="clear"></div>
         </div>
 
@@ -81,11 +76,11 @@
 	<script src="node_modules/angular/angular.js"></script> <!-- angular.min.js -->
 
 	<script src="app.module.js"></script>
-
+    <script src="panels/loadingdata.service.js"></script>
     <script src="map/map.service.js"></script>
-    <script src="map/map.controller.js"></script>
 
-	<script src="panels/panels.service.js"></script>
+
+    <script src="map/map.controller.js"></script>
 	<script src="panels/panels.controller.js"></script>
 
 

@@ -101,8 +101,10 @@ body
 #right {
     width:            38%;
     float:            left;
-    height:           calc(100vh - 50px);
+    height:           calc(100vh - 50px - 10px);
     background-color: #ffffff;
+    padding-top:      5px;
+    padding-bottom:   5px;
     padding-left:     1%;
     padding-right:    1%;
 }

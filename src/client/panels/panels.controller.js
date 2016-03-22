@@ -5,15 +5,40 @@
 		.controller("panel_1Controller", panel_1Controller)
 		.directive("panel_1Widget", stopsWidget);
 
-	function panel_1Controller($scope, panel_1Service){
+
+
+
+
+
+
+
+
+
+	function panel_1Controller($scope, loadingDataService, mapService){
 		
 		var modelStops = function(data){
 			$scope.stops = data;
 		};
 
-        panel_1Service.getStops()
+        loadingDataService.getStops()
 			.then(modelStops);
+
+
+        $scope.loadStopsToMap = function(){
+            //mapService.addMarkers(data.stops);
+            mapService.addCircles(data.stops);
+
+        };
 	}
+
+
+
+
+
+
+
+
+
 
 	function stopsWidget(){
 		var widget = {
