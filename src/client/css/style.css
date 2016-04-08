@@ -31,7 +31,7 @@ body
     position:        absolute;
     font-family:     Arial;
     font-size:       20px;
-    color:           #FFF;
+    color: #ffffff;
     text-shadow:     2px 2px #000000;
     top:             5px;
     left:            12px;
@@ -44,7 +44,7 @@ body
     width:           40%;
     padding:         0px 0;
     color:           #ffffff;
-    background-color: #000ca6;
+    background-color: #3b953c;
     float:            right;
 }
 .menulist

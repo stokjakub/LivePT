@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="Main">
+<html ng-app="app">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,12 +45,24 @@
             <div ng-controller="mapController">
                 <div id="left">
                     <div style="height: 100%;">
+
                         <div id="map"></div>
                     </div>
                 </div>
             </div>
             <div id="right">
 
+                <div id="tabs" ng-controller="TabsCtrl">
+                    <ul>
+                        <li ng-repeat="tab in tabs"
+                            ng-class="{active:isActiveTab(tab.url)}"
+                            ng-click="onClickTab(tab)">{{tab.title}}</li>
+                    </ul>
+                    <div id="mainView">
+                        <div ng-include="currentTab"></div>
+                    </div>
+                </div>
+                <!--
                 <div ng-controller="panel_1Controller">
 
                         <input type="button" value="Load" ng-click="loadStopsToMap()">
@@ -60,7 +72,7 @@
 
 
                 </div>
-
+                -->
 
             </div>
             <div id="clear"></div>
@@ -75,15 +87,16 @@
 	
 	<script src="node_modules/angular/angular.js"></script> <!-- angular.min.js -->
 
+
+
 	<script src="app.module.js"></script>
-
-
-
-    <script src="panels/panels.controller.js"></script>
+    <script src="confiq.js"></script>
+    <script src="panels/tabscontrol.js"></script>
     <script src="map/map.controller.js"></script>
+    <script src="panels/panels.controller.js"></script>
 
-    <script src="panels/loadingdata.service.js"></script>
-    <script src="map/map.service.js"></script>
+    <script src="services.js"></script>
+
 
 </body>
 </html>

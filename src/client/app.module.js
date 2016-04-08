@@ -1,17 +1,8 @@
-(function() {
-    'use strict';
-
-    angular
-        .module('Main', [
-            'Main.panels',
-            'Main.map'
+var app = angular.module('app', [
+            'app.panels',
+            'app.map',
+            'app.tabscontrol'
             ]
         );
-}());
 
 
-//Global variables
-
-var data = {};
-var geometries = {};
-map = L.map('map');

@@ -1,35 +1,44 @@
 (function(){
 
 	angular
-		.module("Main.panels", [])
-		.controller("panel_1Controller", panel_1Controller)
+		.module("app.panels", [])
+		.controller("panel_1Controller",panel_1Controller)
 		.directive("panel_1Widget", stopsWidget);
 
 
 
+	function panel_1Controller($scope, $http){
 
 
 
 
-
-
-
-	function panel_1Controller($scope, loadingDataService, mapService){
-		
-		var modelStops = function(data){
-			$scope.stops = data;
-		};
-
-        loadingDataService.getStops()
-			.then(modelStops);
 
 
         $scope.loadStopsToMap = function(){
-            //mapService.addMarkers(data.stops);
-            //mapService.addCircles(data.stops);
-            mapService.addCircleMarkers(data.stops);
-
+            $scope.getStops().then(Scopes.get('mapController').map.addPoints());
         };
+
+
+
+
+        $scope.getStops = function(){
+            return $http.get("/get_all_stops")
+                .then(function(response){
+                    data.stops = response.data;
+                    console.log(data);
+                    return response.data;
+                })
+        };
+
+
+
+
+
+
+
+
+
+
 	}
 
 
