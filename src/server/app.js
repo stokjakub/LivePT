@@ -2,13 +2,18 @@
 var express 	 	= require('express'),
 	path 			= require('path'),
 	mongoose		= require('mongoose'),
-	bodyParser		= require('body-parser');
+	bodyParser		= require('body-parser'),
+    favicon         = require('serve-favicon');
+
+
 
 // Express setup 
 var app = express();
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, '../client')));
+
+//app.use(favicon(__dirname + '../client/images/favicon.ico'));
 
 // Routes set up
 var router 	= express.Router();

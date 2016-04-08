@@ -11,16 +11,6 @@
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
 </head>
 <body>
-    <!--
-	<div class="container">
-		<h1>More Beer Here</h1>
-
-		<div ng-controller="stopsController">
-			<panels-widget></panels-widget>
-		</div>
-	</div>
-    -->
-
 
 
     <div id="container">
@@ -29,19 +19,12 @@
             <div class="headtitle">
                 ITS App
             </div>
-            <div id="menu">
-                <div class = "menulist">
-                    <ul>
-                        <li><a href="#" title="">Main</a></li>
-                        <li><a href="#" title="">Minor</a></li>
-                        <li><a href="#" title="">About</a></li>
-                    </ul>
-                </div>
-            </div>
+
         </div>
 
 
-        <div id="content">
+        <div id="content" ng-controller="viewController">
+
             <div ng-controller="mapController">
                 <div id="left">
                     <div style="height: 100%;">
@@ -50,29 +33,23 @@
                     </div>
                 </div>
             </div>
-            <div id="right">
 
-                <div id="tabs" ng-controller="TabsCtrl">
-                    <ul>
-                        <li ng-repeat="tab in tabs"
-                            ng-class="{active:isActiveTab(tab.url)}"
-                            ng-click="onClickTab(tab)">{{tab.title}}</li>
-                    </ul>
-                    <div id="mainView">
-                        <div ng-include="currentTab"></div>
-                    </div>
-                </div>
-                <!--
-                <div ng-controller="panel_1Controller">
+            <div id="right" >
+                <div id="menu" >
 
-                        <input type="button" value="Load" ng-click="loadStopsToMap()">
-
-
-
-
+                        <ul>
+                            <li ng-repeat="tab in tabs"
+                                ng-class="{active:isActiveTab(tab.url)}"
+                                ng-click="onClickTab(tab)">{{tab.title}}</li>
+                        </ul>
 
                 </div>
-                -->
+
+
+                <div id="tab" ng-controller="panel_1Controller">
+                    <div ng-include="currentTab"></div>
+                </div>
+
 
             </div>
             <div id="clear"></div>
@@ -87,11 +64,11 @@
 	
 	<script src="node_modules/angular/angular.js"></script> <!-- angular.min.js -->
 
-
-
 	<script src="app.module.js"></script>
     <script src="confiq.js"></script>
-    <script src="panels/tabscontrol.js"></script>
+
+    <script src="panels/tabs/tabscontrol.js"></script>
+
     <script src="map/map.controller.js"></script>
     <script src="panels/panels.controller.js"></script>
 
