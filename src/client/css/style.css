@@ -128,15 +128,6 @@ p { color: #505050;
 }
 
 
-a {
-    color: #ff9900;
-    background: #fff4a3;
-    text-decoration: none;
-}
-
-
-a:hover { color: #ffcc66 }
-
 #clear {
     clear: both;
 }

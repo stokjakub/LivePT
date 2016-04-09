@@ -5,10 +5,11 @@
         .module("app.map", [])
         .controller("mapController", mapController);
 
-    function mapController($scope,$http){
+    function mapController($rootScope,$scope,$http){
 
 
-        $scope.map = {};
+        $rootScope.map = {}; //for functions used in other controllers
+        $scope.map = {}; //for functions used only in this controller
 
         $scope.stops = [];
         $scope.platforms = [];
@@ -83,9 +84,9 @@
 
 
         //Creating/////////////////////////////////////////////////////////////////////////////////////////////
-        $scope.map.addPoints = function(points){
-            $scope.map.addMarkers(data.stops);
-            $scope.map.addCircles(data.stops);
+        $rootScope.map.addPoints = function(points){
+            //$scope.map.addMarkers(points);
+            //$scope.map.addCircles(points);
             $scope.map.addCircleMarkers(points);
 
         };

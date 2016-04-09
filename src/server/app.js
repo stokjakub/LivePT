@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, '../client')));
 
-//app.use(favicon(__dirname + '../client/images/favicon.ico'));
+app.use(favicon(__dirname + '/../client/images/favicon.ico'));
 
 // Routes set up
 var router 	= express.Router();

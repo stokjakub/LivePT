@@ -1,5 +1,5 @@
 var app = angular.module('app', [
-            'app.panels',
+            'app.panel',
             'app.map',
             'app.viewControl'
             ]
