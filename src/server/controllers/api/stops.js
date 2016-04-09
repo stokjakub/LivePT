@@ -1,8 +1,12 @@
+var express = require('express');
+var router = express.Router();
+
+
 var Stops = require('../../models/stops');
 // Wrap all the methods in an object
 
+/*
 var stops = {
-    /*
   read: function(req, res, next){
     res.json({type: "Read", id: req.params.id});
   },
@@ -15,14 +19,26 @@ var stops = {
   delete: function(req, res, next){
     res.json({type: "Delete", id: req.params.id});
   },
-  */
+
   getAll: function(req, res, next){
     Stops.find(function(err, data){
-      if(err) console.error;
+      if(err) console.error();
       res.json(data);
     })
   } 
 };
+*/
+
+router.get('/getallstops', function(req, res){
+    //res.send('Api is working.');
+
+    Stops.find(function(err, data){
+        if(err) console.error();
+        res.json(data);
+    })
+    2
+});
+
 
 // Return the object
-module.exports = stops;
+module.exports = router;

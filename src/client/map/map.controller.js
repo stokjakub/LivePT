@@ -20,9 +20,10 @@
         $scope.car2go = [];
         $scope.citybike = [];
 
-        var markers = [];
-        var polylines = [];
-        var polygons = [];
+
+        geometries.markers = [];
+        geometries.polylines = [];
+        geometries.polygons = [];
 
 
 
@@ -94,7 +95,6 @@
 
         $scope.map.addMarkers = function(points){
 
-            geometries.markers = [];
             for (var i = 0; i < points.length; i++) {
 
                 var marker = new L.marker([points[i].WGS84_LAT,points[i].WGS84_LON],
@@ -106,12 +106,12 @@
                 geometries.markers.push(marker);
 
             }
-            console.log(geometries);
+            //console.log(geometries);
         };
 
         $scope.map.addCircles = function(points){
 
-            geometries.circles = [];
+
             for (var i = 0; i < points.length; i++) {
 
                 var circle = new L.circle([points[i].WGS84_LAT,points[i].WGS84_LON], 50,
@@ -122,18 +122,18 @@
                     })
                     .bindPopup(points[i].NAME)
                     .addTo(map);
-                geometries.circles.push(circle);
+                geometries.markers.push(circle);
 
             }
-            console.log(geometries);
+
         };
 
         $scope.map.addCircleMarkers = function(points){
 
-            geometries.circleMarkers = [];
+
             for (var i = 0; i < points.length; i++) {
 
-                var circleMarker = new L.circleMarker([points[i].WGS84_LAT,points[i].WGS84_LON],
+                var circleMarker = new L.circleMarker([points[i].WGS84_LAT, points[i].WGS84_LON],
                     {
                         color: 'red',
                         fillColor: '#f03',
@@ -142,10 +142,9 @@
                     .setRadius(5)
                     .bindPopup(points[i].NAME)
                     .addTo(map);
-                geometries.circleMarkers.push(circleMarker);
+                geometries.markers.push(circleMarker);
 
             }
-            console.log(geometries);
         };
 
 
@@ -168,21 +167,28 @@
 
         //Removing /////////////////////////////////////////////////////////////////////////////////////////////
 
-        $scope.map.deleteAllMarkers = function () {
-            var numOfMarkers = markers.length;
+        $rootScope.map.deleteAllMarkers = function () {
+            var numOfMarkers = geometries.markers.length;
             if (numOfMarkers > 0) {
                 for (var i = 0; i < numOfMarkers; i++) {
-                    map.removeLayer(markers[i]);
+                    map.removeLayer(geometries.markers[i]);
                 }
             }
-            markers = [];
+            geometries.markers = [];
         };
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////
         $scope.map.initMap();
         $scope.map.locateUser();
-        map.on('click', $scope.map.onMapClick);
+        map.on('click', function(e){
+
+            if (1 < 2)
+            {
+                $scope.map.onMapClick(e);
+            }
+
+        });
 
     }
 }());

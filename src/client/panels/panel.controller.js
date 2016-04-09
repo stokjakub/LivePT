@@ -24,7 +24,7 @@
 
 
 
-        
+
 
 
 
@@ -33,7 +33,7 @@
         };
 
         $scope.getStops = function(){
-            return $http.get("/get_all_stops")
+            return $http.get("/stops/getallstops")
                 .then(function(response){
                     //data.stops = response.data;
                     //console.log(data);

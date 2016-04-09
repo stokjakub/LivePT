@@ -12,15 +12,13 @@ var app = express();
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, '../client')));
-
 app.use(favicon(__dirname + '/../client/images/favicon.ico'));
 
 // Routes set up
 var router 	= express.Router();
-var stops = require('./controllers/api/stops');
+router.get('/stops', require('./controllers/api/stops'));
 
-// Get all stops
-router.get('/get_all_stops', stops.getAll);
+
 
 // Create a product
 //router.post('/api/product', product.create);
