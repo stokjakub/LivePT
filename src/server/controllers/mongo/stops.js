@@ -36,7 +36,6 @@ router.get('/getallstops', function(req, res){
         if(err) console.error();
         res.json(data);
     })
-    2
 });
 
 

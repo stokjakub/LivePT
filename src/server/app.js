@@ -16,8 +16,6 @@ app.use(favicon(__dirname + '/../client/images/favicon.ico'));
 
 // Routes set up
 var router 	= express.Router();
-router.get('/stops', require('./controllers/api/stops'));
-
 
 
 // Create a product
@@ -30,6 +28,8 @@ router.get('/stops', require('./controllers/api/stops'));
 //	.delete(product.delete);
 
 // Register the routing
+router.use('/stops', require('./controllers/mongo/stops'));
+router.use('/api', require('./controllers/api'));
 app.use('/', router);
 
 mongoose.connect('mongodb://localhost/livept');

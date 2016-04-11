@@ -41,7 +41,20 @@
                 })
         };
 
+        $scope.loadApi = function(){
+            $scope.getApi().then(function(response) {
+                api = response;
+                $scope.api = JSON.stringify(api);
+            });
+        };
 
+        $scope.getApi = function(){
+            return $http.get("/api/getapi")
+                .then(function(response){
+                    //console.log(response.data);
+                    return response.data;
+                })
+        }
 
 
 
@@ -51,14 +64,6 @@
 
 
 	}
-
-
-
-
-
-
-
-
 
 
 	function stopsWidget(){
