@@ -30,13 +30,13 @@ var stops = {
 */
 
 router.get('/getallstops', function(req, res){
-    //res.send('Api is working.');
-
     Stops.find(function(err, data){
         if(err) console.error();
         res.json(data);
     })
 });
+
+
 
 
 // Return the object

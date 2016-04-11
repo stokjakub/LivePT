@@ -2,8 +2,7 @@
 
 	angular
 		.module("app.panel", [])
-		.controller("panelController",panelController)
-		.directive("panelWidget", stopsWidget);
+		.controller("panelController",panelController);
 
 
 
@@ -64,20 +63,4 @@
 
 
 	}
-
-
-	function stopsWidget(){
-		var widget = {
-			templateUrl: "./panels/panels.widget.html",
-			restrict: "E",
-			controller: function($scope){
-				$scope.buyme = function(stops){
-					console.log(stops);
-				}
-			}
-		};
-
-		return widget;
-	}
-
 }());
