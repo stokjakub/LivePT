@@ -22,6 +22,9 @@
         },{
             title: 'Arrivals',
             url: ' panels/tabs/arrivals.html'
+        },{
+            title: 'Charts',
+            url: ' panels/tabs/charts.html'
         }];
 
         $scope.currentTab = 'panels/tabs/overview.html';
