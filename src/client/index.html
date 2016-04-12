@@ -4,8 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
-
-	<title>ITS App</title>
+	<title>PT4U</title>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
 	<!--<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">-->
 	<link rel="stylesheet" href="css/style.css">
@@ -14,69 +13,43 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
-
-
     <div id="container">
-
         <div id="header">
             <div class="headtitle">
-                ITS App
+                PT4U
             </div>
-
         </div>
-
-
         <div id="content" ng-controller="viewController">
-
             <div ng-controller="mapController">
                 <div id="left">
                     <div style="height: 100%;">
-
                         <div id="map"></div>
                     </div>
+                    <img src="images/locate.png" class="location_button" ng-click="map.locateUser()">
                 </div>
             </div>
-
             <div id="right" >
                 <div id="menu" >
-
                         <ul>
                             <li ng-repeat="tab in tabs"
                                 ng-class="{active:isActiveTab(tab.url)}"
                                 ng-click="onClickTab(tab)">{{tab.title}}</li>
                         </ul>
-
                 </div>
-
-
                 <div id="tab" ng-controller="panelController">
                     <div ng-include="currentTab"></div>
                 </div>
-
-
             </div>
             <div id="clear"></div>
         </div>
-
-        <div id="footer"> <span>Copyright © 2016 | All Rights Reserved  </span>
-        </div>
-
+        <div id="footer"> <span>Copyright © 2016 | All Rights Reserved  </span></div>
     </div>
-
-
-	
 	<script src="node_modules/angular/angular.js"></script> <!-- angular.min.js -->
-
 	<script src="app.module.js"></script>
     <script src="confiq.js"></script>
-
     <script src="panels/tabs/tabscontrol.js"></script>
-
     <script src="map/map.controller.js"></script>
     <script src="panels/panel.controller.js"></script>
     <script src="panels/charts.controller.js"></script>
-
-
-
 </body>
 </html>

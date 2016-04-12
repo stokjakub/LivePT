@@ -16,6 +16,7 @@
         $scope.lines = [];
         $scope.interruptions = [];
         $scope.arrivals = [];
+        $scope.location = [];
 
         $scope.car2go = [];
         $scope.citybike = [];
@@ -69,10 +70,14 @@
 
         $scope.map.locateUser = function(){
             var onLocationFound = function(e) {
+                $scope.removeUserLocation();
                 var radius = e.accuracy / 2;
-                L.marker(e.latlng).addTo(map)
+
+                var marker = L.marker(e.latlng).addTo(map)
                     .bindPopup("You are within " + radius + " meters from this point");//.openPopup();
-                L.circle(e.latlng, radius).addTo(map);
+                var circle = L.circle(e.latlng, radius).addTo(map);
+                $scope.location.push(marker);
+                $scope.location.push(circle);
             };
             var onLocationError = function (e) {
                 alert(e.message);
@@ -89,10 +94,21 @@
             //$scope.map.addMarkers(points);
             //$scope.map.addCircles(points);
             $scope.map.addCircleMarkers(points);
-
         };
 
+        $rootScope.map.addPointsFromApi = function(data){
+            var points = [];
 
+            var point = {
+                color: "random",
+                NAME: data.locationStop.properties.title,
+                WGS84_LAT: data.locationStop.geometry.coordinates[1],
+                WGS84_LON: data.locationStop.geometry.coordinates[0],
+            };
+            points.push(point);
+            $scope.map.addCircleMarkers(points);
+        };
+        /*
         $scope.map.addMarkers = function(points){
 
             for (var i = 0; i < points.length; i++) {
@@ -127,19 +143,23 @@
             }
 
         };
-
+        */
         $scope.map.addCircleMarkers = function(points){
-
-
+            var getColor = function(){
+                if (typeof points[0].color === "undefined") return getRandomColor();  //"red"
+                else return getRandomColor();
+            };
+            var color1 = getColor();
+            var color2 = getColor();
             for (var i = 0; i < points.length; i++) {
 
                 var circleMarker = new L.circleMarker([points[i].WGS84_LAT, points[i].WGS84_LON],
                     {
-                        color: 'red',
-                        fillColor: '#f03',
+                        color: color1,
+                        fillColor: color2,
                         fillOpacity: 0.5
                     })
-                    .setRadius(5)
+                    .setRadius(10)
                     .bindPopup(points[i].NAME)
                     .addTo(map);
                 geometries.markers.push(circleMarker);
@@ -148,9 +168,14 @@
         };
 
 
-
-
-
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF'.split('');
+            var color = '#';
+            for (var i = 0; i < 6; i++ ) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
 
         //Events////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -177,10 +202,18 @@
             geometries.markers = [];
         };
 
+        $scope.removeUserLocation = function(){
+            var numOfObjects = $scope.location.length;
+            if (numOfObjects > 0) {
+                for (var i = 0; i < numOfObjects; i++) {
+                    map.removeLayer($scope.location[i]);
+                }
+            }
+            $scope.location = [];
+        };
+
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////
-        $scope.map.initMap();
-        $scope.map.locateUser();
         map.on('click', function(e){
 
             if (1 < 2)
@@ -190,6 +223,9 @@
 
         });
 
+
+
+        $scope.map.initMap();
     }
 }());
 

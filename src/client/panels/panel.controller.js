@@ -40,10 +40,16 @@
                 })
         };
 
-        $scope.loadApi = function(){
+        $scope.loadApi = function(rbl){
+            /*
             $scope.getApi().then(function(response) {
-                api = response;
-                $scope.api = JSON.stringify(api);
+                $scope.api = JSON.stringify(response);
+            });
+            */
+            $scope.getOneApi(rbl).then(function(response) {
+                $scope.api = JSON.stringify(response);
+                $scope.showPlatformArrivals(response);
+                $scope.monitors = response.data.monitors;
             });
         };
 
@@ -53,11 +59,26 @@
                     //console.log(response.data);
                     return response.data;
                 })
-        }
+        };
+        $scope.getOneApi = function(rbl) {
+            return $http.get('/api/getoneapi', {
+                params: {
+                    rbl: rbl
+                }})
+                .then(function (response) {
+                    return response.data;
+                })
+        };
 
-
-
-
+        $scope.showPlatformArrivals = function(response){
+            var data = response.data;
+            var monitors = data.monitors;
+            $rootScope.map.addPointsFromApi(monitors[0]);
+            for (var i = 0; i < monitors.length; i++){
+                console.log(monitors[i]);
+                //$rootScope.map.addPointsFromApi(monitors[i]);
+            }
+        };
 
 
 

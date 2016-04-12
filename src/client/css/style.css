@@ -40,6 +40,13 @@ body
     left:            12px;
 }
 
+.location_button{
+    cursor: pointer;
+    height: 40px;
+    bottom: 25px;
+    left:   5px;
+    position: absolute;
+}
 
 
 #content {
