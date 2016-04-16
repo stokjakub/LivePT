@@ -81,7 +81,20 @@
         };
 
 
+        $scope.loadInterrupt = function(){
+            $scope.getInterruptions().then(function(response){
+                $scope.interruptions = response;
 
+
+            });
+        };
+
+        $scope.getInterruptions = function(){
+            return $http.get('/api/getinterrupt')
+                .then(function (response) {
+                    return response.data;
+                })
+        };
 
 	}
 }());

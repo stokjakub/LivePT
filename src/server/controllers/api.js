@@ -42,4 +42,28 @@ router.get('/getoneapi', function(req, res){
     });
 });
 
+router.get('/getinterrupt', function(req, res){
+
+
+    var url1 = "http://www.wienerlinien.at/ogd_realtime/trafficInfoList?";
+
+    //var line = "relatedLine=18";
+    var name = "name=stoerunglang&name=stoerungkurz";
+    var sender ="&sender=";
+
+    var key = keys.wldevkey;
+
+    var url = url1 + name + sender + key;
+
+    request({
+        url: url,
+        json: true
+    }, function (error, response, body) {
+        if (!error && response.statusCode === 200) {
+            res.json(body);
+        }
+    });
+
+});
+
 module.exports = router;
