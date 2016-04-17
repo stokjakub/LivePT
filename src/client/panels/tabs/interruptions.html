@@ -4,7 +4,31 @@
 
     <br>
     <br>
-
-    {{interruptions}}
-
+    <div ng-repeat="interrupt in interruptions.trafficInfos">
+        <ul>
+            <li>Title</li>
+            <ul>
+                <li>{{interrupt.title}}</li>
+            </ul>
+            <li>Description</li>
+            <ul>
+                <li>{{interrupt.description}}</li>
+            </ul>
+            <li>Time</li>
+            <ul>
+                <li>{{interrupt.time.start}}</li>
+                <li>{{interrupt.time.end}}</li>
+            </ul>
+            <li ng-show="interrupt.relatedStops">Related Stops</li>
+            <ul>
+                <li ng-repeat="stop in interrupt.relatedStops">{{stop}}</li>
+            </ul>
+            <li ng-show="interrupt.relatedLines">Related lines</li>
+            <ul>
+                <li ng-repeat="line in interrupt.relatedLines">{{line}}</li>
+            </ul>
+        </ul>
+        <br>
+        <br>
+    </div>
 </div>

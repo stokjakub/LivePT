@@ -83,9 +83,8 @@
 
         $scope.loadInterrupt = function(){
             $scope.getInterruptions().then(function(response){
-                $scope.interruptions = response;
-
-
+                $scope.interruptions = response.data;
+                console.log(response.data);
             });
         };
 
