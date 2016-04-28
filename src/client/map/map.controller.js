@@ -87,6 +87,13 @@
             map.on('locationerror', onLocationError);
         };
 
+        //Properties////////////////////////////////////\
+
+        $rootScope.map.getProperties = function(){
+            var zoom = map.getZoom();
+            var coordinates = map.getCenter();
+            return [zoom, coordinates];
+        };
 
 
         //Creating/////////////////////////////////////////////////////////////////////////////////////////////
@@ -234,6 +241,15 @@
             if (1 < 2)
             {
                 $scope.map.onMapClick(e);
+            }
+
+        });
+
+        map.on('moveend', function(e) {
+            if ($rootScope.loadStopActive == true)
+            {
+                $rootScope.map.deleteAllMarkers();
+                $rootScope.loadStopsInArea();
             }
 
         });

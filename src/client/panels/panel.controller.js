@@ -21,12 +21,11 @@
         $scope.citybike = [];
 
 
+        $rootScope.loadStopActive = false;
 
 
 
-
-
-
+        /*
         $scope.loadStopsToMap = function(){
             $scope.getStops().then(function(response){
                 if(typeof response === "undefined" || response.length == 0){
@@ -38,9 +37,36 @@
             }
             );
         };
+        */
+        $scope.loadStopsToMap = function(){
+            if ($rootScope.loadStopActive == false){
+                $rootScope.loadStopActive = true;
+                $rootScope.loadStopsInArea();
+            }else{
+                $rootScope.map.deleteAllMarkers();
+                $rootScope.loadStopActive = false;
+            }
 
-        $scope.getStops = function(){
-            return $http.get("/stops/getallstops")
+        };
+        $rootScope.loadStopsInArea = function(){
+            var coordinates, diameter;
+            zoom = $rootScope.map.getProperties()[0];
+            coordinates = $rootScope.map.getProperties()[1];
+
+
+            $scope.getStops(coordinates, zoom).then(function(response){
+                console.log(response);
+                $rootScope.map.addPoints(response);
+            });
+
+
+        };
+        $scope.getStops = function(coordinates, zoom){
+            return $http.get("/stops/getStopsInTheArea",{
+                    params: {
+                        coordinates: coordinates,
+                        zoom: zoom
+                    }})
                 .then(function(response){
                     //data.stops = response.data;
                     //console.log(data);

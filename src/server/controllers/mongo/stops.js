@@ -3,31 +3,7 @@ var router = express.Router();
 
 
 var Stops = require('../../models/stops');
-// Wrap all the methods in an object
 
-/*
-var stops = {
-  read: function(req, res, next){
-    res.json({type: "Read", id: req.params.id});
-  },
-  create: function(req, res, next){
-    res.send(req.body);
-  },
-  update: function(req, res, next){
-    res.json({type: "Update", id: req.params.id, body: req.body });
-  },
-  delete: function(req, res, next){
-    res.json({type: "Delete", id: req.params.id});
-  },
-
-  getAll: function(req, res, next){
-    Stops.find(function(err, data){
-      if(err) console.error();
-      res.json(data);
-    })
-  } 
-};
-*/
 
 router.get('/getallstops', function(req, res){
     Stops.find(function(err, data){
@@ -45,7 +21,19 @@ router.get('/getstop', function(req, res){
 });
 
 
+router.get('/getStopsInTheArea', function(req, res){
+    var coordinates = JSON.parse(req.param('coordinates'));
+    var zoom = req.param('zoom');
+    console.log(coordinates.lat);
 
+    Stops.find({
+        WGS84_LON: { $gt:coordinates.lng - 0.01 , $lt: coordinates.lng + 0.01 },
+        WGS84_LAT: { $gt: coordinates.lat - 0.01 , $lt: coordinates.lat + 0.01}
+    },function(err, data){
+        if(err) console.error();
+        res.json(data);
+    })
+});
 
 
 // Return the object

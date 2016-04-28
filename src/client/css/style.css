@@ -27,7 +27,14 @@ body
     float:            left;
     background-color: #000000;
 }
-
+#imglogo{
+    position: fixed;
+    top: 50vh;
+    right: 0px;
+    height: 150px;
+    width: 40%;
+    z-index: 100;
+}
 .headtitle
 {
     cursor:         pointer;
@@ -106,7 +113,7 @@ body
 }
 
 #menu li:hover:not(.active) {
-    background-color: #111;
+    background-color: #000000;
 }
 
 .active {
