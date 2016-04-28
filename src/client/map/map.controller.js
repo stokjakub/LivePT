@@ -108,6 +108,21 @@
             points.push(point);
             $scope.map.addCircleMarkers(points);
         };
+
+        $rootScope.map.addPointsFromPlatforms = function(data){
+            var points = [];
+            for (var i = 0; i < data.length; i++){
+                var point = {
+                    color: "random",
+                    NAME: data[i].RBL_NUMMER,
+                    WGS84_LAT: data[i].STEIG_WGS84_LAT,
+                    WGS84_LON: data[i].STEIG_WGS84_LON
+                };
+                points.push(point);
+            }
+
+            $scope.map.addCircleMarkers(points);
+        };
         /*
         $scope.map.addMarkers = function(points){
 

@@ -28,7 +28,15 @@
 
 
         $scope.loadStopsToMap = function(){
-            $scope.getStops().then($rootScope.map.addPoints);
+            $scope.getStops().then(function(response){
+                if(typeof response === "undefined" || response.length == 0){
+                    console.log("Didn't receive any data.")
+                    console.log(response);
+                }else{
+                    $rootScope.map.addPoints(response);
+                }
+            }
+            );
         };
 
         $scope.getStops = function(){
@@ -40,17 +48,18 @@
                 })
         };
 
-        $scope.loadApi = function(rbl){
-            /*
-            $scope.getApi().then(function(response) {
-                $scope.api = JSON.stringify(response);
-            });
-            */
-            $scope.getOneApi(rbl).then(function(response) {
-                $scope.api = JSON.stringify(response);
-                $scope.showPlatformArrivals(response);
-                $scope.monitors = response.data.monitors;
-            });
+        $scope.loadStopWithAPI = function(stopID){
+            $http.get("/platforms/getstopplatforms")
+                .then(function(response){
+                    console.log(response.data);
+                    $rootScope.map.addPointsFromPlatforms(response.data);
+                });
+
+            //$scope.getOneApi(rbl).then(function(response) {
+            //    $scope.api = JSON.stringify(response);
+            //    $scope.showPlatformArrivals(response);
+            //    $scope.monitors = response.data.monitors;
+            //});
         };
 
         $scope.getApi = function(){
@@ -87,7 +96,6 @@
                 console.log(response.data);
             });
         };
-
         $scope.getInterruptions = function(){
             return $http.get('/api/getinterrupt')
                 .then(function (response) {

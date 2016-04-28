@@ -51,7 +51,7 @@ router.get('/getinterrupt', function(req, res){
     var name = "name=stoerunglang&name=stoerungkurz";
     var sender ="&sender=";
 
-    var key = keys.wldevkey;
+    var key = keys.wldevkey; //keys.wlkey;
 
     var url = url1 + name + sender + key;
 
@@ -63,6 +63,15 @@ router.get('/getinterrupt', function(req, res){
             res.json(body);
         }
     });
+
+});
+
+
+
+
+router.get('/getStopApis', function(req, res){
+
+
 
 });
 

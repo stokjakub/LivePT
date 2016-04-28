@@ -1,9 +1,15 @@
 <div id="stops">
 
-    <input type="button" value="Load API" ng-click="loadApi(rbl)">
-    <input type="number" name="input" ng-model="rbl" ng-init="rbl=10">
+    <input type="button" value="Load Stop with API" ng-click="loadStopWithAPI(rbl)">
+    <input type="number" name="input" ng-model="stopID">
     <br>
     <br>
+
+    {{scope.stopApis}}
+
+
+
+    <!--
     {{ monitors[0].locationStop.properties.title}}
     <div ng-repeat="monitor in monitors">
         <ul ng-repeat="line in monitor.lines">
@@ -20,5 +26,7 @@
             </li>
         </ul>
     </div>
+
+    -->
 
 </div>

@@ -29,6 +29,8 @@ var router 	= express.Router();
 
 // Register the routing
 router.use('/stops', require('./controllers/mongo/stops'));
+router.use('/platforms', require('./controllers/mongo/platforms'));
+router.use('/lines', require('./controllers/mongo/lines'));
 router.use('/api', require('./controllers/api'));
 app.use('/', router);
 

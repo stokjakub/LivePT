@@ -35,6 +35,15 @@ router.get('/getallstops', function(req, res){
         res.json(data);
     })
 });
+router.get('/getstop', function(req, res){
+    Stops.find({
+        "STATION-ID": 214460676
+    },function(err, data){
+        if(err) console.error();
+        res.json(data);
+    })
+});
+
 
 
 
