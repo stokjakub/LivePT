@@ -23,22 +23,31 @@
 
         $rootScope.loadStopActive = false;
 
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-        /*
+        //LOAD ALL STOPS IN THE MAP//////////////////////////////////////////////////////////////////////////////////
         $scope.loadStopsToMap = function(){
             $scope.getStops().then(function(response){
                 if(typeof response === "undefined" || response.length == 0){
-                    console.log("Didn't receive any data.")
-                    console.log(response);
+                    console.error();
                 }else{
+
                     $rootScope.map.addPoints(response);
                 }
             }
             );
         };
-        */
-        $scope.loadStopsToMap = function(){
+        $scope.getStops = function(){
+            return $http.get("/stops/getAllStops")
+                .then(function(response){
+                    return response.data;
+                })
+        };
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //LOADING STOPS IN AREA USING MAP STATE///////////////////////////////////////////////////////////////////////
+        $scope.loadStopsInAreaToMap = function(){
             if ($rootScope.loadStopActive == false){
                 $rootScope.loadStopActive = true;
                 $rootScope.loadStopsInArea();
@@ -46,22 +55,17 @@
                 $rootScope.map.deleteAllMarkers();
                 $rootScope.loadStopActive = false;
             }
-
         };
         $rootScope.loadStopsInArea = function(){
-            var coordinates, diameter;
+            var coordinates, zoom;
             zoom = $rootScope.map.getProperties()[0];
             coordinates = $rootScope.map.getProperties()[1];
 
-
-            $scope.getStops(coordinates, zoom).then(function(response){
-                console.log(response);
+            $scope.getStopsInArea(coordinates, zoom).then(function(response){
                 $rootScope.map.addPoints(response);
             });
-
-
         };
-        $scope.getStops = function(coordinates, zoom){
+        $scope.getStopsInArea = function(coordinates, zoom){
             return $http.get("/stops/getStopsInTheArea",{
                     params: {
                         coordinates: coordinates,
@@ -73,21 +77,27 @@
                     return response.data;
                 })
         };
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+        //LOAD APIS OF PLATFORMS OF A STOP/////////////////////////////////////////////////////////////////////////////
+        $rootScope.showArrivalsAfterClickOnStopInMap = function(stopID){
+            $scope.loadStopWithAPI(stopID);
+        };
         $scope.loadStopWithAPI = function(stopID){
-            $http.get("/platforms/getstopplatforms")
+            $http.get("/platforms/getStopPlatformsArrivals", {
+                    params: {
+                        stopID: stopID
+                    }})
                 .then(function(response){
-                    console.log(response.data);
-                    $rootScope.map.addPointsFromPlatforms(response.data);
+                    $scope.stopApis = [];
+                    $scope.stopApis = response.data;
+                    //$rootScope.map.addPointsFromSetOfApi(response.data);  //not used - too much stuff in the map
                 });
-
-            //$scope.getOneApi(rbl).then(function(response) {
-            //    $scope.api = JSON.stringify(response);
-            //    $scope.showPlatformArrivals(response);
-            //    $scope.monitors = response.data.monitors;
-            //});
         };
 
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //LOADING API VARIOIS WAYS/////////////////////////////////////////////////////////////////////////////////////
         $scope.getApi = function(){
             return $http.get("/api/getapi")
                 .then(function(response){
@@ -104,22 +114,12 @@
                     return response.data;
                 })
         };
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        $scope.showPlatformArrivals = function(response){
-            var data = response.data;
-            var monitors = data.monitors;
-            $rootScope.map.addPointsFromApi(monitors[0]);
-            for (var i = 0; i < monitors.length; i++){
-                console.log(monitors[i]);
-                //$rootScope.map.addPointsFromApi(monitors[i]);
-            }
-        };
-
-
+        //LOADING INTERRUPTIONS//////////////////////////////////////////////////////////////////////////////////////
         $scope.loadInterrupt = function(){
             $scope.getInterruptions().then(function(response){
                 $scope.interruptions = response.data;
-                console.log(response.data);
             });
         };
         $scope.getInterruptions = function(){
@@ -128,6 +128,7 @@
                     return response.data;
                 })
         };
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	}
 }());

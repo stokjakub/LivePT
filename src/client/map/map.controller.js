@@ -103,6 +103,22 @@
             $scope.map.addCircleMarkers(points);
         };
 
+        $rootScope.map.addPointsFromSetOfApi = function(data){
+            var points = [];
+
+            for (var i = 0; i < data.length; i++){
+                var point = {
+                    color: "random",
+                    NAME: data[i][0],
+                    WGS84_LAT: data[i][1].data.monitors[0].locationStop.geometry.coordinates[1],
+                    WGS84_LON: data[i][1].data.monitors[0].locationStop.geometry.coordinates[0]
+                };
+                points.push(point);
+            }
+
+            $scope.map.addCircleMarkers(points);
+        };
+
         $rootScope.map.addPointsFromApi = function(data){
             var points = [];
 
@@ -118,12 +134,13 @@
 
         $rootScope.map.addPointsFromPlatforms = function(data){
             var points = [];
-            for (var i = 0; i < data.length; i++){
+            for (var i = 0; i < data.data.monitors.length; i++){
+                var platform = data.data.monitors[i];
                 var point = {
                     color: "random",
-                    NAME: data[i].RBL_NUMMER,
-                    WGS84_LAT: data[i].STEIG_WGS84_LAT,
-                    WGS84_LON: data[i].STEIG_WGS84_LON
+                    NAME: platform[i].RBL_NUMMER,
+                    WGS84_LAT: platform[i].STEIG_WGS84_LAT,
+                    WGS84_LON: platform[i].STEIG_WGS84_LON
                 };
                 points.push(point);
             }
@@ -174,18 +191,20 @@
             var color1 = getColor();
             var color2 = getColor();
             for (var i = 0; i < points.length; i++) {
-
                 var circleMarker = new L.circleMarker([points[i].WGS84_LAT, points[i].WGS84_LON],
                     {
                         color: color1,
                         fillColor: color2,
-                        fillOpacity: 0.5
+                        fillOpacity: 0.5,
+                        stopID: points[i]['STATION-ID']
                     })
                     .setRadius(10)
                     .bindPopup(points[i].NAME)
+                    .on('click', function(e) {
+                        $rootScope.showArrivalsAfterClickOnStopInMap(e.target.options.stopID)
+                    })
                     .addTo(map);
                 geometries.markers.push(circleMarker);
-
             }
         };
 
@@ -240,7 +259,7 @@
 
             if (1 < 2)
             {
-                $scope.map.onMapClick(e);
+                //$scope.map.onMapClick(e);
             }
 
         });
@@ -248,8 +267,8 @@
         map.on('moveend', function(e) {
             if ($rootScope.loadStopActive == true)
             {
-                $rootScope.map.deleteAllMarkers();
-                $rootScope.loadStopsInArea();
+                //$rootScope.map.deleteAllMarkers();
+                //$rootScope.loadStopsInArea();
             }
 
         });

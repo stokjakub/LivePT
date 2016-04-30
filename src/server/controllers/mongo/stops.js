@@ -5,7 +5,7 @@ var router = express.Router();
 var Stops = require('../../models/stops');
 
 
-router.get('/getallstops', function(req, res){
+router.get('/getAllStops', function(req, res){
     Stops.find(function(err, data){
         if(err) console.error();
         res.json(data);
@@ -24,7 +24,6 @@ router.get('/getstop', function(req, res){
 router.get('/getStopsInTheArea', function(req, res){
     var coordinates = JSON.parse(req.param('coordinates'));
     var zoom = req.param('zoom');
-    console.log(zoom);
     var factor = zoom * 0.001;
     Stops.find({
         WGS84_LON: { $gt:coordinates.lng - factor*2 , $lt: coordinates.lng + factor*2 },

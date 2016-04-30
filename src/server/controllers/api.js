@@ -30,7 +30,6 @@ router.get('/getoneapi', function(req, res){
     //var sender = keys.wlkey;
     var url2 = "&rbl=";
     var rbl = req.param('rbl');
-    console.log(rbl);
     var url = url1 + sender + url2 + rbl;
     request({
         url: url,
