@@ -32,7 +32,7 @@
                     console.error();
                 }else{
 
-                    $rootScope.map.addPoints(response);
+                    $rootScope.map.addStops(response);
                 }
             }
             );
@@ -62,7 +62,7 @@
             coordinates = $rootScope.map.getProperties()[1];
 
             $scope.getStopsInArea(coordinates, zoom).then(function(response){
-                $rootScope.map.addPoints(response);
+                $rootScope.map.addStops(response);
             });
         };
         $scope.getStopsInArea = function(coordinates, zoom){
@@ -91,8 +91,15 @@
                 .then(function(response){
                     $scope.stopApis = [];
                     $scope.stopApis = response.data;
+                    console.log(response.data);
                     //$rootScope.map.addPointsFromSetOfApi(response.data);  //not used - too much stuff in the map
                 });
+        };
+
+        $scope.zoomToPlatform = function(rbl, coordinates){
+            $rootScope.map.locateToPoint(coordinates);
+            $rootScope.map.addMarkerOfPlatform(coordinates);
+
         };
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////

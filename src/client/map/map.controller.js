@@ -25,9 +25,9 @@
         geometries.markers = [];
         geometries.polylines = [];
         geometries.polygons = [];
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
+        //CONFIGURATION/////////////////////////////////////////////////////////////////////////////////////////////
         var popup = L.popup();
 
         var LeafIcon = L.Icon.extend({
@@ -45,17 +45,20 @@
 
         geometries.icons = [greenIcon, redIcon];
 
+        var getRandomColor = function(){
+            var letters = '0123456789ABCDEF'.split('');
+            var color = '#';
+            for (var i = 0; i < 6; i++ ) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        };
 
 
-
-
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         //intitializiton///////////////////////////////////////////////////////////////////////////////////////////
-
         $scope.map.initMap = function(){
-
-
-
             map.setView([48.200, 16.366], 13);
 
             L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png?{foo}', {
@@ -67,7 +70,10 @@
             }).addTo(map);
 
         };
+        $scope.map.initMap();
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+        //USER LOCALIZATION/////////////////////////////////////////////////////////////////////////////////////////
         $scope.map.locateUser = function(){
             var onLocationFound = function(e) {
                 $scope.removeUserLocation();
@@ -86,23 +92,24 @@
             map.on('locationfound', onLocationFound);
             map.on('locationerror', onLocationError);
         };
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        //Properties////////////////////////////////////\
+        //ZOOMING////////////////////////////////////////////////////////////////////////////////////////////////////
 
+        $rootScope.map.locateToPoint = function(coordinates){
+            var zoom = 18;
+            map.setView([coordinates[1], coordinates[0]], zoom);
+        };
+
+        //GET PROPERTIES/////////////////////////////////////////////////////////////////////////////////////////////
         $rootScope.map.getProperties = function(){
             var zoom = map.getZoom();
             var coordinates = map.getCenter();
             return [zoom, coordinates];
         };
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-        //Creating/////////////////////////////////////////////////////////////////////////////////////////////
-        $rootScope.map.addPoints = function(points){
-            //$scope.map.addMarkers(points);
-            //$scope.map.addCircles(points);
-            $scope.map.addCircleMarkers(points);
-        };
-
+        //ADDING POINTS/////////////////////////////////////////////////////////////////////////////////////////////
         $rootScope.map.addPointsFromSetOfApi = function(data){
             var points = [];
 
@@ -183,9 +190,9 @@
 
         };
         */
-        $scope.map.addCircleMarkers = function(points){
+        $rootScope.map.addStops = function(points){
             var getColor = function(){
-                if (typeof points[0].color === "undefined") return getRandomColor();  //"red"
+                if (typeof points[0].color === "undefined") return "red";  //"red"
                 else return getRandomColor();
             };
             var color1 = getColor();
@@ -208,31 +215,20 @@
             }
         };
 
+        $rootScope.map.addMarkerOfPlatform = function(coordinates){
 
-        function getRandomColor() {
-            var letters = '0123456789ABCDEF'.split('');
-            var color = '#';
-            for (var i = 0; i < 6; i++ ) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-        }
 
-        //Events////////////////////////////////////////////////////////////////////////////////////////////////
-
-        $scope.map.onMapClick = function(e){
-            //alert("You clicked the map at " + e.latlng);
-            popup
-                .setLatLng(e.latlng)
-                .setContent("You clicked the map at " + e.latlng.toString())
-                .openOn(map);
+            var marker = new L.marker([coordinates[1],coordinates],
+                {
+                    //icon: geometries.icons[1]
+                })
+                //.bindPopup(points[i].NAME)
+                .addTo(map);
+            geometries.markers.push(marker);
         };
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
-        //Removing /////////////////////////////////////////////////////////////////////////////////////////////
-
+        //REMOVING STUFF /////////////////////////////////////////////////////////////////////////////////////////////
         $rootScope.map.deleteAllMarkers = function () {
             var numOfMarkers = geometries.markers.length;
             if (numOfMarkers > 0) {
@@ -252,9 +248,9 @@
             }
             $scope.location = [];
         };
-
-
         ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //Events////////////////////////////////////////////////////////////////////////////////////////////////
         map.on('click', function(e){
 
             if (1 < 2)
@@ -274,8 +270,14 @@
         });
 
 
+        $scope.map.onMapClick = function(e){
+            //alert("You clicked the map at " + e.latlng);
+            popup
+                .setLatLng(e.latlng)
+                .setContent("You clicked the map at " + e.latlng.toString())
+                .openOn(map);
+        };
 
-        $scope.map.initMap();
     }
 }());
 

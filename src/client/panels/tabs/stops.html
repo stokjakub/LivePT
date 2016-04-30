@@ -1,13 +1,14 @@
 <div id="stops">
 
-    <input type="button" value="Load Stop with API" ng-click="loadStopWithAPI(rbl)">
+    <input type="button" value="Load Stop with API" ng-click="loadStopWithAPI(stopID)">
     <input type="number" name="input" ng-model="stopID" ng-value="stopID = 214461177">  TODO SEARCHING USING STOP NAME
     <br>
     <br>
 
     <div ng-repeat="platform in stopApis">
         <ul>
-            <li> <a href="#">Platform rbl={{platform[0]}}</a> TODO ZOOM TO PLATFORM ON CLICK</li>
+            <li> <input type="button" ng-model="platformButton" ng-value="platformButton='Platform '+platform[0]"
+                    ng-click="zoomToPlatform(platform[0],platform[1].data.monitors[0].locationStop.geometry.coordinates)"></li>
             <ul ng-repeat="line in platform[1].data.monitors">
                 <li> {{line.lines[0].name}} </li>
                 <ul>

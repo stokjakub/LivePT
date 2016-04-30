@@ -34,6 +34,10 @@ router.get('/getStopsInTheArea', function(req, res){
     })
 });
 
+router.get('/searchStops',function(req, res){
+
+});
+
 
 // Return the object
 module.exports = router;
