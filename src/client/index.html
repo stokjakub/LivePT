@@ -12,33 +12,30 @@
     <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
-<body>
+<body ng-controller="viewController">
     <div id="container">
         <div id="header">
-            <!--<img id="imglogo" src="images/logo.jpg" alt="PT4U">-->
-            <div class="headtitle">
-                PT4U
+            <img id="imglogo" src="images/logo.png" alt="PT4U">
+            <div id="menu" >
+              <ul>
+                <li ng-repeat="tab in tabs"
+                    ng-class="{active:isActiveTab(tab.url)}"
+                    ng-click="onClickTab(tab)">{{tab.title}}</li>
+              </ul>
             </div>
         </div>
-        <div id="content" ng-controller="viewController">
+        <div id="content" >
             <div ng-controller="mapController">
                 <div id="left">
-                    <div style="height: 100%;">
-                        <div id="map"></div>
+                    <div id="tab" ng-controller="panelController">
+                      <div ng-include="currentTab"></div>
                     </div>
                     <img src="images/locate.png" class="location_button" ng-click="map.locateUser()">
                 </div>
             </div>
             <div id="right" >
-                <div id="menu" >
-                        <ul>
-                            <li ng-repeat="tab in tabs"
-                                ng-class="{active:isActiveTab(tab.url)}"
-                                ng-click="onClickTab(tab)">{{tab.title}}</li>
-                        </ul>
-                </div>
-                <div id="tab" ng-controller="panelController">
-                    <div ng-include="currentTab"></div>
+                <div style="height: 100%;">
+                  <div id="map"></div>
                 </div>
             </div>
             <div id="clear"></div>

@@ -8,22 +8,22 @@
     function tabsCtrl($scope) {
 
         $scope.tabs = [{
-            title: 'Overview',
+            title: 'HOME',
             url: 'panels/tabs/overview.html'
         }, {
-            title: 'Stops',
+            title: 'STATIONS',
             url: 'panels/tabs/stops.html'
         }, {
-            title: 'Lines',
+            title: 'LINES',
             url: 'panels/tabs/lines.html'
         },{
-            title: 'Interruptions',
+            title: 'STATUS UPDATES',
             url: 'panels/tabs/interruptions.html'
         },{
-            title: 'Arrivals',
+            title: 'EXTRAS',
             url: ' panels/tabs/arrivals.html'
         },{
-            title: 'Charts',
+            title: 'HELP',
             url: ' panels/tabs/charts.html'
         }];
 

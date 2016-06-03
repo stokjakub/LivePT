@@ -1,12 +1,27 @@
 <div id="overview">
 
-    <p>Here will be an overview.</p>
+  <div id = "search">
+    <div class = "text">YOU ARE HERE:</div>
+    <input class = "topinput" type="text" name="input" ng-model="location">
 
-    <br>
 
-    <input type="button" value="Show stops" ng-click="loadStopsToMap()"> <!--loadStopsInAreaToMap()-->
-    <input type="button" value="Detele all" ng-click="map.deleteAllMarkers()">
-    <br><br>
+  </div>
+
+  <br>
+
+  NEAREST TO YOU:
+  <br>
+
+  PUBLIC TRANSPORT STATIONS
+  <br>
+  <img class="icon" src="images/icons/metro.png">
+
+
+
+
+  <input type="button" value="Show stops" ng-click="loadStopsToMap()"> <!--loadStopsInAreaToMap()-->
+  <input type="button" value="Detele all" ng-click="map.deleteAllMarkers()">
+  <br><br>
 
 
 
