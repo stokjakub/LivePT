@@ -2,10 +2,10 @@
 
     angular
         .module("app.viewControl", [])
-        .controller('viewController', ['$scope', tabsCtrl]);
+        .controller('viewController', ['$scope', '$rootScope', tabsCtrl]);
 
 
-    function tabsCtrl($scope) {
+    function tabsCtrl($rootScope,$scope) {
 
         $scope.tabs = [{
             title: 'HOME',
@@ -30,7 +30,13 @@
         $scope.currentTab = 'panels/tabs/overview.html';
 
         $scope.onClickTab = function (tab) {
+
             $scope.currentTab = tab.url;
+
+            if (tab.title == 'HOME'){
+              $rootScope.map.locateUser();
+
+            }
         };
 
         $scope.isActiveTab = function(tabUrl) {

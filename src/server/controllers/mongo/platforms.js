@@ -46,6 +46,19 @@ populatePlatformsWithApi = function(rbls, callback){
 
 };
 
+router.get('/getMultipleStopsPlatforms', function(req, res){
+  var stops = req.param('stops');
+  var output = [];
+
+  for (var i = 0; i < stops.length; i++){
+
+
+    var platfroms = [];
+    output.push(platforms);
+  }
+
+});
+
 
 // Return the object
 module.exports = router;

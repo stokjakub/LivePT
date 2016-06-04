@@ -2,7 +2,7 @@
 
   <div id = "search">
     <div class = "text">YOU ARE HERE:</div>
-    <input class = "topinput" type="text" name="input" ng-model="location">
+    <input class = "topinput" type="text" name="input" ng-model="locationname">
 
 
   </div>
@@ -14,12 +14,15 @@
 
   PUBLIC TRANSPORT STATIONS
   <br>
-  <img class="icon" src="images/icons/metro.png">
+  <!--<img class="icon" src="images/icons/metro.png">-->
+
+  <ul>
+    <li ng-repeat="stop in stoplist">
+      {{stop.NAME}}
+    </li>
+  </ul>
 
 
-
-
-  <input type="button" value="Show stops" ng-click="loadStopsToMap()"> <!--loadStopsInAreaToMap()-->
   <input type="button" value="Detele all" ng-click="map.deleteAllMarkers()">
   <br><br>
 

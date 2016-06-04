@@ -41,6 +41,25 @@ router.get('/getoneapi', function(req, res){
     });
 });
 
+router.get('/reversegeocode', function(req, res){
+  var lat = req.param('lat');
+  var lng = req.param('lng');
+
+  var url = "http://api.geonames.org/findNearbyPlaceNameJSON?lat=";
+  url +=  lat;
+  url +=  "&lng=";
+  url +=  lng;
+  url +=  "&username=stokjakub";
+  request({
+    url: url,
+    json: true
+  }, function (error, response, body) {
+    if (!error && response.statusCode === 200) {
+      res.json(body);
+    }
+  });
+});
+
 router.get('/getinterrupt', function(req, res){
 
 

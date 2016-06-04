@@ -17,6 +17,11 @@
         $scope.interruptions = [];
         $scope.arrivals = [];
         $scope.location = [];
+        $rootScope.locationCoo = {
+          name: "",
+          lat: 0,
+          lng: 0
+        };
 
         $scope.car2go = [];
         $scope.citybike = [];
@@ -74,11 +79,11 @@
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         //USER LOCALIZATION/////////////////////////////////////////////////////////////////////////////////////////
-        $scope.map.locateUser = function(){
+        $rootScope.map.locateUser = function(){
             var onLocationFound = function(e) {
                 $scope.removeUserLocation();
+                $scope.storeLocation(e.latlng);
                 var radius = e.accuracy / 2;
-
                 var marker = L.marker(e.latlng).addTo(map)
                     .bindPopup("You are within " + radius + " meters from this point");//.openPopup();
                 var circle = L.circle(e.latlng, radius).addTo(map);
@@ -92,7 +97,58 @@
             map.on('locationfound', onLocationFound);
             map.on('locationerror', onLocationError);
         };
+        //$rootScope.map.locateUser();
+
+        $scope.storeLocation = function(latlng){
+          $rootScope.locationCoo.lat = latlng.lat;
+          $rootScope.locationCoo.lng = latlng.lng;
+          $scope.getGeocode(latlng.lat, latlng.lng)
+            .then(function(response){
+              //console.log(response.geonames[0]);
+              $rootScope.assignLocationName(response.geonames[0].toponymName);
+            });
+          $rootScope.map.findClosestStops(latlng);
+        };
+
+        $scope.getGeocode = function(lat, lng) {
+          return $http.get('/api/reversegeocode', {
+              params: {
+                lat: lat,
+                lng: lng
+              }})
+            .then(function (response) {
+
+              return response.data;
+            })
+        };
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //CLOSEST STOPS SHOW///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        $rootScope.map.findClosestStops = function(latlng){
+
+            var diameter_lat = 0.004;
+            var diameter_lng = 0.008;
+            var lat = latlng.lat;
+            var lng = latlng.lng;
+            console.log(latlng);
+            var closestStops = [];
+            for (var i = 0; i < globalstops.length; i++){
+              if (globalstops[i].WGS84_LAT < (lat + diameter_lat) && globalstops[i].WGS84_LAT > (lat - diameter_lat)
+              && globalstops[i].WGS84_LON < (lng + diameter_lng) && globalstops[i].WGS84_LON > (lng - diameter_lng)){
+                closestStops.push(globalstops[i]);
+              }
+            }
+            console.log(closestStops);
+            if (closestStops.length > 0){
+              $rootScope.map.deleteAllMarkers();
+              $rootScope.map.addStops(closestStops);
+
+              $rootScope.listClosestStops(closestStops);
+            }
+
+
+        };
 
         //ZOOMING////////////////////////////////////////////////////////////////////////////////////////////////////
 
