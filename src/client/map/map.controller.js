@@ -97,17 +97,15 @@
             map.on('locationfound', onLocationFound);
             map.on('locationerror', onLocationError);
         };
-        //$rootScope.map.locateUser();
+
 
         $scope.storeLocation = function(latlng){
-          $rootScope.locationCoo.lat = latlng.lat;
-          $rootScope.locationCoo.lng = latlng.lng;
+          $rootScope.map.findClosestStops(latlng);
           $scope.getGeocode(latlng.lat, latlng.lng)
             .then(function(response){
               //console.log(response.geonames[0]);
               $rootScope.assignLocationName(response.geonames[0].toponymName);
             });
-          $rootScope.map.findClosestStops(latlng);
         };
 
         $scope.getGeocode = function(lat, lng) {
@@ -139,7 +137,6 @@
                 closestStops.push(globalstops[i]);
               }
             }
-
             if (closestStops.length > 0){
               $rootScope.map.deleteAllMarkers();
               $rootScope.map.addStops(closestStops);

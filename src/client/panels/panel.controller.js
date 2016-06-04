@@ -141,12 +141,17 @@
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //HOME PAGE FUNCTIONS///////////////////////////////////////////////////////////////////////////////////////
+    $scope.listLocationStops = function(){
+      $rootScope.map.locateUser();
+    };
+    $scope.listMapStops = function(){
+      var coordinates = $rootScope.map.getProperties()[1];
+      $rootScope.map.findClosestStops(coordinates);
+
+    };
 
     $rootScope.listClosestStops = function (closestStops) {
-
       $scope.loadPlatformsOfStops(closestStops);
-
-
     };
 
     $scope.loadPlatformsOfStops = function (closestStops) {
@@ -158,12 +163,11 @@
         .then(function (response) {
 
           $scope.prepareListOfStops(response.data);
-          //console.log($scope.stoplist);
         });
     };
 
     $scope.prepareListOfStops = function(list){
-      $scope.stoplist = [];
+      var stoplist = [];
 
       for (var i = 0; i < list.length; i++){
 
@@ -185,6 +189,7 @@
                 name: list[i].platforms[j][1].data.monitors[0].lines[k].name,
                 direction: list[i].platforms[j][1].data.monitors[0].lines[k].direction,
                 type: "",
+                delayed: false,
                 departures: []
               };
               var type = "";
@@ -198,21 +203,58 @@
               for (var l = 0; l < list[i].platforms[j][1].data.monitors[0].lines[k].departures.departure.length; l++){
                 var departure = {
                   countdown: list[i].platforms[j][1].data.monitors[0].lines[k].departures.departure[l].departureTime.countdown,
-                  timePlanned: list[i].platforms[j][1].data.monitors[0].lines[k].departures.departure[l].departureTime.timePlanned,
-                  timeReal: list[i].platforms[j][1].data.monitors[0].lines[k].departures.departure[l].departureTime.timeReal
+                  timePlanned: new Date(list[i].platforms[j][1].data.monitors[0].lines[k].departures.departure[l].departureTime.timePlanned),
+                  timeReal: new Date(list[i].platforms[j][1].data.monitors[0].lines[k].departures.departure[l].departureTime.timeReal),
+                  delayed: false
                 };
+                if (departure.timeReal - departure.timePlanned >= 30000){
+                  departure.delayed = true;
+                  line.delayed = true;
+                }
                 line.departures.push(departure);
               }
+
               platform.lines.push(line);
             }
           }
           output.platforms.push(platform);
         }
-
-        $scope.stoplist= output;
-        console.log(output);
+        stoplist.push(output);
       }
+      $scope.sortStops(stoplist);
+    };
 
+    $scope.sortStops = function(stoplist){
+      $scope.filter = ["bus", "tram", "metro"];
+
+      $scope.lists = [[],[],[]];
+
+      for(var i = 0; i < stoplist.length; i++){
+        var modes = {
+          bus: false,
+          tram: false,
+          metro: false
+        };
+        for (var j = 0; j < stoplist[i].platforms.length;j++){
+          for (var k = 0; k <stoplist[i].platforms[j].lines.length; k++){
+            var line = stoplist[i].platforms[j].lines[k];
+            if (line.type == "bus"){
+              modes.bus = true;
+            }else if (line.type == "tram"){
+              modes.tram = true;
+            }else if (line.type == "metro"){
+              modes.metro = true;
+            }
+          }
+        }
+        if (modes.bus == true){
+          $scope.lists[0].push(stoplist[i]);
+        }else if (modes.tram == true){
+          $scope.lists[1].push(stoplist[i]);
+        }else if (modes.metro == true){
+          $scope.lists[2].push(stoplist[i]);
+        };
+      }
     };
 
     //GET STOPS, LINES AND OTHER VITAL DATA////////////////////////////////////////////////////////////////////////

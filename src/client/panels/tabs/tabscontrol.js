@@ -34,8 +34,7 @@
             $scope.currentTab = tab.url;
 
             if (tab.title == 'HOME'){
-              $rootScope.map.locateUser();
-
+              //$rootScope.map.locateUser();
             }
         };
 

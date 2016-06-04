@@ -3,23 +3,38 @@
   <div id = "search">
     <div class = "text">YOU ARE HERE:</div>
     <input class = "topinput" type="text" name="input" ng-model="locationname">
-
-
   </div>
 
   <br>
 
-  NEAREST TO YOU:
+  <input type="button" value="Load Nearest" ng-click="listLocationStops();">
+  <input type="button" value="Load Map" ng-click="listMapStops()">
+
   <br>
 
   PUBLIC TRANSPORT STATIONS
   <br>
   <!--<img class="icon" src="images/icons/metro.png">-->
-
+  BUSES
   <ul>
-    <li ng-repeat="stop in stoplist">
-      {{stop.NAME}}
-    </li>
+    <div ng-repeat="mode in lists track by $index">
+      {{$index}}
+      <div ng-repeat="stop in mode">
+        {{stop.name}}
+        <div ng-repeat="platform in stop.platforms">
+          <li style="display:inline" ng-repeat="line in platform.lines" ng-if="line.type == filter[$index]">
+            {{line.name}}
+            {{line.direction}}
+            {{line.delayed}}
+            <ul>
+              <li style="display:inline" ng-repeat="departure in line.departures | limitTo: 3">
+                {{departure.countdown}}
+              </li>
+            </ul>
+          </li>
+        </div>
+      </div>
+    </div>
   </ul>
 
 
