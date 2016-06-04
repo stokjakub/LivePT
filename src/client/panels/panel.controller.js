@@ -144,9 +144,7 @@
 
     $rootScope.listClosestStops = function (closestStops) {
 
-      $scope.stoplist = closestStops;
-
-      //$scope.loadPlatformsOfStops(closestStops);
+      $scope.loadPlatformsOfStops(closestStops);
 
 
     };
@@ -158,8 +156,63 @@
           }
         })
         .then(function (response) {
-          console.log(response);
+
+          $scope.prepareListOfStops(response.data);
+          //console.log($scope.stoplist);
         });
+    };
+
+    $scope.prepareListOfStops = function(list){
+      $scope.stoplist = [];
+
+      for (var i = 0; i < list.length; i++){
+
+        var output = {
+          name: list[i].stop['NAME'],
+          id: list[i].stop['STATION-ID'],
+          platforms: []
+        };
+
+        for (var j = 0; j < list[i].platforms.length; j++){
+          var platform = {
+            id: list[i].platforms[j][0],
+            lines: []
+          };
+          if (typeof list[i].platforms[j][1].data.monitors[0] === "undefined"){
+          }else{
+            for (var k = 0; k < list[i].platforms[j][1].data.monitors[0].lines.length; k++){
+              var line = {
+                name: list[i].platforms[j][1].data.monitors[0].lines[k].name,
+                direction: list[i].platforms[j][1].data.monitors[0].lines[k].direction,
+                type: "",
+                departures: []
+              };
+              var type = "";
+              if(list[i].platforms[j][1].data.monitors[0].lines[k].name.slice(-1)=="A"){
+                type = "bus";
+              }else{
+                type = "tram"
+              }                                                                                                                         //TODO add metro
+              line.type = type;
+
+              for (var l = 0; l < list[i].platforms[j][1].data.monitors[0].lines[k].departures.departure.length; l++){
+                var departure = {
+                  countdown: list[i].platforms[j][1].data.monitors[0].lines[k].departures.departure[l].departureTime.countdown,
+                  timePlanned: list[i].platforms[j][1].data.monitors[0].lines[k].departures.departure[l].departureTime.timePlanned,
+                  timeReal: list[i].platforms[j][1].data.monitors[0].lines[k].departures.departure[l].departureTime.timeReal
+                };
+                line.departures.push(departure);
+              }
+              platform.lines.push(line);
+            }
+          }
+          output.platforms.push(platform);
+        }
+
+        $scope.stoplist= output;
+        console.log(output);
+      }
+
     };
 
     //GET STOPS, LINES AND OTHER VITAL DATA////////////////////////////////////////////////////////////////////////

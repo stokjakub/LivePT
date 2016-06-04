@@ -50,12 +50,29 @@ router.get('/getMultipleStopsPlatforms', function(req, res){
   var stops = req.param('stops');
   var output = [];
 
-  for (var i = 0; i < stops.length; i++){
+
+  stops.forEach(function(currentStop){
+    var stop = JSON.parse(currentStop);
+    Platforms.distinct(
+      "RBL_NUMMER",
+      {
+        FK_STATION_ID : stop['STATION-ID']
+      },function(err, response){
+        if(err) console.error();
+        populatePlatformsWithApi(response, function (response){
+          var content = {
+            stop: stop,
+            platforms: response
+          };
+          output.push(content);
+          if (output.length == stops.length){
+            res.json(output);
+          }
+        });
+      });
+  });
 
 
-    var platfroms = [];
-    output.push(platforms);
-  }
 
 });
 

@@ -133,13 +133,13 @@
             var lng = latlng.lng;
             console.log(latlng);
             var closestStops = [];
-            for (var i = 0; i < globalstops.length; i++){
+            for (var i = 0; i < globalstops.length; i++) {
               if (globalstops[i].WGS84_LAT < (lat + diameter_lat) && globalstops[i].WGS84_LAT > (lat - diameter_lat)
-              && globalstops[i].WGS84_LON < (lng + diameter_lng) && globalstops[i].WGS84_LON > (lng - diameter_lng)){
+                && globalstops[i].WGS84_LON < (lng + diameter_lng) && globalstops[i].WGS84_LON > (lng - diameter_lng)) {
                 closestStops.push(globalstops[i]);
               }
             }
-            console.log(closestStops);
+
             if (closestStops.length > 0){
               $rootScope.map.deleteAllMarkers();
               $rootScope.map.addStops(closestStops);
