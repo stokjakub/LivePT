@@ -37,10 +37,14 @@
               //$rootScope.map.locateUser();
             }
         };
-
+        $rootScope.stopTabActive = function(){
+          $scope.currentTab = 'panels/tabs/stops.html'
+        };
         $scope.isActiveTab = function(tabUrl) {
             return tabUrl == $scope.currentTab;
-        }
+        };
+
+
 
     }
 }());

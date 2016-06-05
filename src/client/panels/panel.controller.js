@@ -146,27 +146,28 @@
     };
     $scope.listMapStops = function(){
       var coordinates = $rootScope.map.getProperties()[1];
+      console.log(coordinates);
       $rootScope.map.findClosestStops(coordinates);
 
     };
 
     $rootScope.listClosestStops = function (closestStops) {
-      $scope.loadPlatformsOfStops(closestStops);
+      $scope.loadPlatformsOfStops(closestStops, true);
     };
 
-    $scope.loadPlatformsOfStops = function (closestStops) {
+    $scope.loadPlatformsOfStops = function (closestStops, multiple) {
       $http.get("/platforms/getMultipleStopsPlatforms", {
           params: {
             stops: closestStops
           }
         })
         .then(function (response) {
-
-          $scope.prepareListOfStops(response.data);
+          console.log(response);
+          $scope.prepareListOfStops(response.data, multiple);
         });
     };
 
-    $scope.prepareListOfStops = function(list){
+    $scope.prepareListOfStops = function(list, multiple){
       var stoplist = [];
 
       for (var i = 0; i < list.length; i++){
@@ -182,7 +183,9 @@
             id: list[i].platforms[j][0],
             lines: []
           };
-          if (typeof list[i].platforms[j][1].data.monitors[0] === "undefined"){
+          if (typeof list[i].platforms[j][1].data === "undefined")
+          {}
+          else if (typeof list[i].platforms[j][1].data.monitors[0] === "undefined"){
           }else{
             for (var k = 0; k < list[i].platforms[j][1].data.monitors[0].lines.length; k++){
               var line = {
@@ -195,8 +198,10 @@
               var type = "";
               if(list[i].platforms[j][1].data.monitors[0].lines[k].name.slice(-1)=="A"){
                 type = "bus";
+              }else if (list[i].platforms[j][1].data.monitors[0].lines[k].name.substring(0,1) == "U"){
+                type = "metro"
               }else{
-                type = "tram"
+                type = "tram";
               }                                                                                                                         //TODO add metro
               line.type = type;
 
@@ -221,13 +226,17 @@
         }
         stoplist.push(output);
       }
-      $scope.sortStops(stoplist);
+      $scope.sortStops(stoplist, multiple);
     };
 
-    $scope.sortStops = function(stoplist){
+    $scope.sortStops = function(stoplist, multiple){
       $scope.filter = ["bus", "tram", "metro"];
-
-      $scope.lists = [[],[],[]];
+      console.log(stoplist);
+      if (multiple){
+        $scope.lists = [[],[],[]];
+      }else{
+        $scope.stationList = [[],[],[]];
+      }
 
       for(var i = 0; i < stoplist.length; i++){
         var modes = {
@@ -247,16 +256,39 @@
             }
           }
         }
-        if (modes.bus == true){
-          $scope.lists[0].push(stoplist[i]);
-        }else if (modes.tram == true){
-          $scope.lists[1].push(stoplist[i]);
-        }else if (modes.metro == true){
-          $scope.lists[2].push(stoplist[i]);
-        };
+        if (multiple) {
+          if (modes.bus == true)$scope.lists[0].push(stoplist[i]);
+          if (modes.tram == true)$scope.lists[1].push(stoplist[i]);
+          if (modes.metro == true)$scope.lists[2].push(stoplist[i]);
+        }else{
+          if (modes.bus == true)$scope.stationList[0].push(stoplist[i]);
+          if (modes.tram == true)$scope.stationList[1].push(stoplist[i]);
+          if (modes.metro == true)$scope.stationList[2].push(stoplist[i]);
+        }
       }
     };
 
+    $scope.redirectToStop = function (stopName){
+      //$rootScope.stopTabActive();
+      $scope.showStop(stopName);
+    };
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //STATIONS FUNCTIONS///////////////////////////////////////////////////////////////////////////////////////////////
+
+    $scope.showStop = function(stopName){
+      for(var i = 0; i < globalstops.length;i++){
+        if (stopName == globalstops[i]['NAME']){
+          $scope.loadStopWithAPI(globalstops[i]['STATION-ID']);
+          var coordinates = [globalstops[i]['WGS84_LON'],globalstops[i]['WGS84_LAT']];
+          $rootScope.map.locateToPoint(coordinates);
+          $scope.loadPlatformsOfStops([globalstops[i]], false);
+          break;
+        }
+      }
+    };
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //GET STOPS, LINES AND OTHER VITAL DATA////////////////////////////////////////////////////////////////////////
 
     $scope.loadData = function () {
@@ -267,8 +299,18 @@
       $scope.getStops()
         .then(function (response) {
           globalstops = response;
+          $scope.createStopList(globalstops);
           //console.log(globalstops);
         });
+    };
+    $scope.createStopList = function(globalstops){
+      $scope.stopList = [];
+      globalstops.forEach(function(stopCurrent){
+        $scope.stopList.push({
+          id: stopCurrent['STATION-ID'],
+          name: stopCurrent['NAME']
+        });
+      });
     };
     $scope.loadLines = function () {
       $scope.getLines()

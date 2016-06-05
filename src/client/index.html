@@ -25,7 +25,7 @@
             </div>
         </div>
         <div id="content" >
-            <div ng-controller="mapController">
+            <div >
                 <div id="left">
                     <div id="tab" ng-controller="panelController">
                       <div ng-include="currentTab"></div>
@@ -33,7 +33,7 @@
                     <img src="images/locate.png" class="location_button" ng-click="map.locateUser()">
                 </div>
             </div>
-            <div id="right" >
+            <div id="right" ng-controller="mapController">
                 <div style="height: 100%;">
                   <div id="map"></div>
                 </div>

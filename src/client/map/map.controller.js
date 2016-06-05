@@ -129,7 +129,6 @@
             var diameter_lng = 0.008;
             var lat = latlng.lat;
             var lng = latlng.lng;
-            console.log(latlng);
             var closestStops = [];
             for (var i = 0; i < globalstops.length; i++) {
               if (globalstops[i].WGS84_LAT < (lat + diameter_lat) && globalstops[i].WGS84_LAT > (lat - diameter_lat)

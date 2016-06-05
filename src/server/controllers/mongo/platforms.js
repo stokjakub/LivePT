@@ -49,28 +49,39 @@ populatePlatformsWithApi = function(rbls, callback){
 router.get('/getMultipleStopsPlatforms', function(req, res){
   var stops = req.param('stops');
   var output = [];
+  console.log(stops);
+  console.log(stops.length);
+  if( typeof stops === 'string' ) {
+    var stop = JSON.parse(stops);
+    getContent(stop);
+  }
+  else{
+    stops.forEach(function (currentStop, index) {
+      var stop = JSON.parse(currentStop);
+      getContent(stop);
+    });
+  }
 
-
-  stops.forEach(function(currentStop){
-    var stop = JSON.parse(currentStop);
+  function getContent (stop){
     Platforms.distinct(
       "RBL_NUMMER",
       {
-        FK_STATION_ID : stop['STATION-ID']
-      },function(err, response){
-        if(err) console.error();
-        populatePlatformsWithApi(response, function (response){
+        FK_STATION_ID: stop['STATION-ID']
+      }, function (err, response) {
+        if (err) console.error();
+        populatePlatformsWithApi(response, function (response) {
           var content = {
             stop: stop,
             platforms: response
           };
           output.push(content);
-          if (output.length == stops.length){
-            res.json(output);
-          }
         });
       });
-  });
+  }
+
+  setTimeout(function(){     //todo: this is not very nice
+    res.json(output);
+  }, 1000);
 
 
 

@@ -15,14 +15,14 @@
   PUBLIC TRANSPORT STATIONS
   <br>
   <!--<img class="icon" src="images/icons/metro.png">-->
-  BUSES
+
   <ul>
-    <div ng-repeat="mode in lists track by $index">
-      {{$index}}
+    <div ng-repeat="mode in lists" ng-init="modeIndex = $index">
+      <h1>{{filter[modeIndex] | uppercase}}</h1>
       <div ng-repeat="stop in mode">
-        {{stop.name}}
+        <button ng-click="redirectToStop(stop.name);">{{stop.name}}</button>
         <div ng-repeat="platform in stop.platforms">
-          <li style="display:inline" ng-repeat="line in platform.lines" ng-if="line.type == filter[$index]">
+          <li style="display:inline" ng-repeat="line in platform.lines" ng-show="line.type == filter[modeIndex]">
             {{line.name}}
             {{line.direction}}
             {{line.delayed}}

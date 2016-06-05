@@ -1,10 +1,34 @@
 <div id="stops">
 
-    <input type="button" value="Load Stop with API" ng-click="loadStopWithAPI(stopID)">
-    <input type="number" name="input" ng-model="stopID" ng-value="stopID = 214461177">  TODO SEARCHING USING STOP NAME
-    <br>
-    <br>
+  <form ng-submit="showStop(stopName)">
+    <input list="stopListInput" name="browser" ng-model="stopName">
+    <datalist id="stopListInput">
+      <option ng-repeat="stop in stopList">{{stop.name}}</option>
+    </datalist>
+  </form>
 
+
+  <ul>
+    <div ng-repeat="mode in stationList" ng-init="modeIndex = $index">
+      <h1>{{filter[modeIndex] | uppercase}}</h1>
+      <div ng-repeat="stop in mode">
+        <button ng-click="redirectToStop(stop.name);">{{stop.name}}</button>
+        <div ng-repeat="platform in stop.platforms">
+          <li style="display:inline" ng-repeat="line in platform.lines" ng-show="line.type == filter[modeIndex]">
+            {{line.name}}
+            {{line.direction}}
+            {{line.delayed}}
+            <ul>
+              <li style="display:inline" ng-repeat="departure in line.departures | limitTo: 3">
+                {{departure.countdown}}
+              </li>
+            </ul>
+          </li>
+        </div>
+      </div>
+    </div>
+  </ul>
+  <!--
     <div ng-repeat="platform in stopApis">
         <ul>
             <li> <input type="button" ng-model="platformButton" ng-value="platformButton='Platform '+platform[0]"
@@ -15,13 +39,13 @@
                     <li ng-repeat="departure in line.lines[0].departures.departure">
                         {{departure.departureTime.countdown}} <!--<br>
                         {{departure.departureTime.timePlanned}} <br>
-                        {{departure.departureTime.timeReal}} -->
+                        {{departure.departureTime.timeReal}}
                     </li>
                 </ul>
             </ul>
         </ul>
     </div>
-
+    -->
 
 
     <!--

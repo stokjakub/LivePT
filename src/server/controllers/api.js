@@ -9,8 +9,8 @@ var keys = require('../not_shared.json');
 
 router.get('/getapi', function(req, res){
     var url1 = "http://www.wienerlinien.at/ogd_realtime/monitor?sender=";
-    var sender = keys.wldevkey;
-    //var sender = keys.wlkey;
+    //var sender = keys.wldevkey;
+    var sender = keys.wlkey;
     var url2 = "&rbl=4103";
     var url = url1 + sender + url2;
     request({
@@ -26,8 +26,8 @@ router.get('/getapi', function(req, res){
 
 router.get('/getoneapi', function(req, res){
     var url1 = "http://www.wienerlinien.at/ogd_realtime/monitor?sender=";
-    var sender = keys.wldevkey;
-    //var sender = keys.wlkey;
+    //var sender = keys.wldevkey;
+    var sender = keys.wlkey;
     var url2 = "&rbl=";
     var rbl = req.param('rbl');
     var url = url1 + sender + url2 + rbl;
