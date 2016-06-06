@@ -13,7 +13,7 @@
       <h1>{{filter[modeIndex] | uppercase}}</h1>
       <div ng-repeat="stop in mode">
         <div ng-repeat="platform in stop.platforms" ng-show="platform.lines[0].type == filter[modeIndex]">
-          <button ng-click="zoomToPlatform(platform[0],platform[1].data.monitors[0].locationStop.geometry.coordinates);">
+          <button ng-click="zoomToPlatform(platform);">
             To the platform</button>
           <li style="display:inline" ng-repeat="line in platform.lines" ng-show="line.type == filter[modeIndex]">
             {{line.name}}

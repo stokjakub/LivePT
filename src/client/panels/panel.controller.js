@@ -24,7 +24,6 @@
     $rootScope.loadStopActive = false;
 
     $rootScope.assignLocationName = function (name) {
-      console.log(name);
       $scope.locationname = name;
     };
 
@@ -62,7 +61,9 @@
       coordinates = $rootScope.map.getProperties()[1];
 
       $scope.getStopsInArea(coordinates, zoom).then(function (response) {
-        $rootScope.map.addStops(response, "stop");
+        //$rootScope.map.deleteAllHighlights();
+        $rootScope.map.deleteAllMarkers();
+        $rootScope.map.addPoints(response, "highlight");
       });
     };
     $scope.getStopsInArea = function (coordinates, zoom) {
@@ -81,26 +82,13 @@
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //LOAD APIS OF PLATFORMS OF A STOP/////////////////////////////////////////////////////////////////////////////
-    $rootScope.showArrivalsAfterClickOnStopInMap = function (stopID) {
-      $scope.loadStopWithAPI(stopID);
-    };
-    $scope.loadStopWithAPI = function (stopID) {
-      $http.get("/platforms/getStopPlatformsArrivals", {
-          params: {
-            stopID: stopID
-          }
-        })
-        .then(function (response) {
-          $scope.stopApis = [];
-          $scope.stopApis = response.data;
-          console.log(response.data);
-          //$rootScope.map.addPointsFromSetOfApi(response.data);  //not used - too much stuff in the map
-        });
-    };
 
-    $scope.zoomToPlatform = function (rbl, coordinates) {
-      $rootScope.map.locateToPoint(coordinates);
-      $rootScope.map.addMarkerOfPlatform(coordinates);
+
+    $scope.zoomToPlatform = function (platform) {
+      $rootScope.map.locateToPoint([platform.coordinates.lat, platform.coordinates.lng]);
+      var list = [];
+      list.push(platform.coordinates);
+      $rootScope.map.addHighlights(list);
 
     };
 
@@ -146,7 +134,6 @@
     };
     $scope.listMapStops = function(){
       var coordinates = $rootScope.map.getProperties()[1];
-      console.log(coordinates);
       $rootScope.map.findClosestStops(coordinates);
 
     };
@@ -162,7 +149,6 @@
           }
         })
         .then(function (response) {
-          console.log(response);
           $scope.prepareListOfStops(response.data, multiple);
           if (draw){
             $rootScope.map.deleteAllPlatforms();
@@ -173,9 +159,7 @@
 
     $scope.prepareListOfStops = function(list, multiple){
       var stoplist = [];
-
       for (var i = 0; i < list.length; i++){
-
         var output = {
           name: list[i].stop['NAME'],
           id: list[i].stop['STATION-ID'],
@@ -185,12 +169,17 @@
         for (var j = 0; j < list[i].platforms.length; j++){
           var platform = {
             id: list[i].platforms[j][0],
+            coordinates: {},
             lines: []
           };
           if (typeof list[i].platforms[j][1].data === "undefined")
           {}
           else if (typeof list[i].platforms[j][1].data.monitors[0] === "undefined"){
           }else{
+            platform.coordinates = {
+              lat: list[i].platforms[j][1].data.monitors[0].locationStop.geometry.coordinates[0],
+              lng: list[i].platforms[j][1].data.monitors[0].locationStop.geometry.coordinates[1]
+            };
             for (var k = 0; k < list[i].platforms[j][1].data.monitors[0].lines.length; k++){
               var line = {
                 name: list[i].platforms[j][1].data.monitors[0].lines[k].name,
@@ -235,7 +224,6 @@
 
     $scope.sortStops = function(stoplist, multiple){
       $scope.filter = ["bus", "tram", "metro"];
-      console.log(stoplist);
       if (multiple){
         $scope.lists = [[],[],[]];
       }else{
@@ -305,6 +293,7 @@
         .then(function (response) {
           globalstops = response;
           $scope.createStopList(globalstops);
+          $rootScope.map.addPoints(globalstops, "stop");
           //console.log(globalstops);
         });
     };
