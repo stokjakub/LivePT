@@ -23,8 +23,8 @@
 
     $rootScope.loadStopActive = false;
 
-    $rootScope.assignLocationName = function (name) {
-      $scope.locationname = name;
+    $rootScope.assignLocation = function (list) {
+      $scope.locationname = list.toponymName + ", "+list.adminName1+ ", "+list.countryName;
     };
 
 
@@ -183,9 +183,9 @@
             for (var k = 0; k < list[i].platforms[j][1].data.monitors[0].lines.length; k++){
               var line = {
                 name: list[i].platforms[j][1].data.monitors[0].lines[k].name,
-                direction: list[i].platforms[j][1].data.monitors[0].lines[k].direction,
+                direction: list[i].platforms[j][1].data.monitors[0].lines[k].towards,
                 type: "",
-                delayed: false,
+                delayed: 0,
                 departures: []
               };
               var type = "";
@@ -203,11 +203,16 @@
                   countdown: list[i].platforms[j][1].data.monitors[0].lines[k].departures.departure[l].departureTime.countdown,
                   timePlanned: new Date(list[i].platforms[j][1].data.monitors[0].lines[k].departures.departure[l].departureTime.timePlanned),
                   timeReal: new Date(list[i].platforms[j][1].data.monitors[0].lines[k].departures.departure[l].departureTime.timeReal),
-                  delayed: false
+                  delayed: 0
                 };
-                if (departure.timeReal - departure.timePlanned >= 30000){
-                  departure.delayed = true;
-                  line.delayed = true;
+                if (departure.timeReal - departure.timePlanned >= 60000){
+                  departure.delayed = 1;
+                }
+                if (departure.timeReal - departure.timePlanned >= 120000){
+                  departure.delayed = 2;
+                }
+                if(departure.delayed > line.delayed){
+                  line.delayed = departure.delayed;
                 }
                 line.departures.push(departure);
               }
@@ -259,9 +264,11 @@
         }
       }
     };
-
+    $rootScope.redirectToStop = function(stopName){
+      $scope.redirectToStop(stopName);
+    };
     $scope.redirectToStop = function (stopName){
-      //$rootScope.stopTabActive();
+      $scope.$parent.stopTabActive();
       $scope.showStop(stopName);
     };
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////

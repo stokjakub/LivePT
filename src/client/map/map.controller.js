@@ -104,7 +104,7 @@
           $scope.getGeocode(latlng.lat, latlng.lng)
             .then(function(response){
               //console.log(response.geonames[0]);
-              $rootScope.assignLocationName(response.geonames[0].toponymName);
+              $rootScope.assignLocation(response.geonames[0]);
             });
         };
 
@@ -188,12 +188,15 @@
                     color: points[i].color,
                     fillColor: points[i].color,
                     fillOpacity: 0.5,
-                    stopID: points[i]['STATION-ID']
+                    stopID: points[i]['STATION-ID'],
+                    name: points[i].NAME
                 })
                 .setRadius(10)
                 .bindPopup(points[i].NAME)
                 .on('click', function(e) {
-                    //$rootScope.pointClick(e.target.options.stopID, type);
+                  if (type == "stop"){
+                    $rootScope.redirectToStop(e.target.options.name);
+                  }
                 })
                 .addTo(map);
               if (type == "platform") {
