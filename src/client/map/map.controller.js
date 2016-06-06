@@ -137,7 +137,8 @@
               }
             }
             if (closestStops.length > 0){
-              $rootScope.map.deleteAllMarkers();
+              //$rootScope.map.deleteAllMarkers();
+              $rootScope.map.deleteAllHighlights();
               $rootScope.map.addPoints(closestStops,"highlight");
 
               $rootScope.listClosestStops(closestStops);
@@ -163,11 +164,6 @@
 
         //ADDING POINTS/////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-      $scope.map.addCircleMarkers = function(points, type){
-        $rootScope.map.addPoints(points, type);
-      };
 
         $rootScope.map.addPoints = function(points, type){
 
@@ -215,8 +211,8 @@
           var points = [];
 
           for (var i = 0; i < data.length; i++){
-            if (typeof data[i][1].data.monitors[0] == "undefined"){
-
+            if (typeof data[i][1].data == "undefined") {
+            }else if (typeof data[i][1].data.monitors[0] == "undefined"){
             }else{
               var point = {
                 color: $scope.markerColor.platform,
@@ -227,12 +223,12 @@
               points.push(point);
             }
           }
-          $scope.map.addCircleMarkers(points, "platform");
+          $rootScope.map.addPoints(points, "platform");
 
         };
 
         $rootScope.map.addHighlights = function(listOfCoordinates){
-          $rootScope.map.deleteAllHighlights();
+          //$rootScope.map.deleteAllHighlights();
           var points = [];
           for (var i = 0; i < listOfCoordinates.length; i++){
 
@@ -245,7 +241,7 @@
             points.push(point);
 
           }
-          $scope.map.addCircleMarkers(points, "highlight");
+          $rootScope.map.addPoints(points, "highlight");
         };
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

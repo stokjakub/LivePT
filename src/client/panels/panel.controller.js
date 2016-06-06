@@ -61,8 +61,8 @@
       coordinates = $rootScope.map.getProperties()[1];
 
       $scope.getStopsInArea(coordinates, zoom).then(function (response) {
-        //$rootScope.map.deleteAllHighlights();
-        $rootScope.map.deleteAllMarkers();
+        //$rootScope.map.deleteAllMarkers();
+        $rootScope.map.deleteAllHighlights();
         $rootScope.map.addPoints(response, "highlight");
       });
     };
@@ -88,7 +88,7 @@
       $rootScope.map.locateToPoint([platform.coordinates.lat, platform.coordinates.lng]);
       var list = [];
       list.push(platform.coordinates);
-      $rootScope.map.addHighlights(list);
+      //$rootScope.map.addHighlights(list);
 
     };
 

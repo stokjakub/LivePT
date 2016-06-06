@@ -84,13 +84,7 @@ body
 }
 
 
-.location_button{
-    cursor: pointer;
-    height: 40px;
-    bottom: 25px;
-    left:   5px;
-    position: absolute;
-}
+
 
 
 #content {
@@ -98,11 +92,22 @@ body
     background-color: #99a1fd;
 }
 #right {
+    position: relative;
     height: calc(100vh - 80px - 20px);
     width: 60%;
     float: left;
 }
+#right img{
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  margin-left: -50px;
+  margin-top: -50px;
 
+}
 #left {
     width:            40%;
     float:            left;
