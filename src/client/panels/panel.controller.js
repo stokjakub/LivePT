@@ -152,7 +152,10 @@
           $scope.prepareListOfStops(response.data, multiple);
           if (draw){
             $rootScope.map.deleteAllPlatforms();
-            $rootScope.map.addMarkersOfPlatforms(response.data[0].platforms);
+            if (typeof response.data[0] === "undefined"){}
+            else{
+              $rootScope.map.addMarkersOfPlatforms(response.data[0].platforms);
+            }
           }
         });
     };
@@ -268,6 +271,7 @@
       $scope.redirectToStop(stopName);
     };
     $scope.redirectToStop = function (stopName){
+      $scope.stopName = stopName;
       $scope.$parent.stopTabActive();
       $scope.showStop(stopName);
     };

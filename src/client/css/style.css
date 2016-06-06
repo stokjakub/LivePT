@@ -97,7 +97,7 @@ body
     width: 60%;
     float: left;
 }
-#right img{
+.sight{
   pointer-events: none;
   position: absolute;
   top: 50%;
