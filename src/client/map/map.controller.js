@@ -192,7 +192,7 @@
                     name: points[i].NAME
                 })
                 .setRadius(10)
-                .bindPopup(points[i].NAME)
+                //.bindPopup(points[i].NAME)
                 .on('click', function(e) {
                   if (type == "stop"){
                     $rootScope.redirectToStop(e.target.options.name);
