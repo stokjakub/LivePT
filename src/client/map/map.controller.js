@@ -26,10 +26,13 @@
         $scope.car2go = [];
         $scope.citybike = [];
 
-
-        geometries.markers = [];
-        geometries.polylines = [];
-        geometries.polygons = [];
+        $scope.markerColor = {
+            platform: "blue"
+          };
+        geometries = {
+          markers: [],
+          platforms: []
+        };
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         //CONFIGURATION/////////////////////////////////////////////////////////////////////////////////////////////
@@ -138,7 +141,7 @@
             }
             if (closestStops.length > 0){
               $rootScope.map.deleteAllMarkers();
-              $rootScope.map.addStops(closestStops);
+              $rootScope.map.addStops(closestStops,"stop");
 
               $rootScope.listClosestStops(closestStops);
             }
@@ -162,98 +165,23 @@
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         //ADDING POINTS/////////////////////////////////////////////////////////////////////////////////////////////
-        $rootScope.map.addPointsFromSetOfApi = function(data){
-            var points = [];
 
-            for (var i = 0; i < data.length; i++){
-                var point = {
-                    color: "random",
-                    NAME: data[i][0],
-                    WGS84_LAT: data[i][1].data.monitors[0].locationStop.geometry.coordinates[1],
-                    WGS84_LON: data[i][1].data.monitors[0].locationStop.geometry.coordinates[0]
-                };
-                points.push(point);
-            }
 
-            $scope.map.addCircleMarkers(points);
-        };
 
-        $rootScope.map.addPointsFromApi = function(data){
-            var points = [];
+      $scope.map.addCircleMarkers = function(points, type){
+        $rootScope.map.addStops(points, type);
+      };
 
-            var point = {
-                color: "random",
-                NAME: data.locationStop.properties.title,
-                WGS84_LAT: data.locationStop.geometry.coordinates[1],
-                WGS84_LON: data.locationStop.geometry.coordinates[0],
-            };
-            points.push(point);
-            $scope.map.addCircleMarkers(points);
-        };
-
-        $rootScope.map.addPointsFromPlatforms = function(data){
-            var points = [];
-            for (var i = 0; i < data.data.monitors.length; i++){
-                var platform = data.data.monitors[i];
-                var point = {
-                    color: "random",
-                    NAME: platform[i].RBL_NUMMER,
-                    WGS84_LAT: platform[i].STEIG_WGS84_LAT,
-                    WGS84_LON: platform[i].STEIG_WGS84_LON
-                };
-                points.push(point);
-            }
-
-            $scope.map.addCircleMarkers(points);
-        };
-        /*
-        $scope.map.addMarkers = function(points){
+        $rootScope.map.addStops = function(points, type){
 
             for (var i = 0; i < points.length; i++) {
-
-                var marker = new L.marker([points[i].WGS84_LAT,points[i].WGS84_LON],
-                    {
-                        icon: geometries.icons[1]
-                    })
-                    .bindPopup(points[i].NAME)
-                    .addTo(map);
-                geometries.markers.push(marker);
-
-            }
-            //console.log(geometries);
-        };
-
-        $scope.map.addCircles = function(points){
-
-
-            for (var i = 0; i < points.length; i++) {
-
-                var circle = new L.circle([points[i].WGS84_LAT,points[i].WGS84_LON], 50,
-                    {
-                        color: 'red',
-                        fillColor: '#f03',
-                        fillOpacity: 0.5
-                    })
-                    .bindPopup(points[i].NAME)
-                    .addTo(map);
-                geometries.markers.push(circle);
-
-            }
-
-        };
-        */
-        $rootScope.map.addStops = function(points){
-            var getColor = function(){
-                if (typeof points[0].color === "undefined") return "red";  //"red"
-                else return getRandomColor();
-            };
-            var color1 = getColor();
-            var color2 = getColor();
-            for (var i = 0; i < points.length; i++) {
+              if (typeof points[i].color === "undefined"){
+                points[i].color = "red";
+              }
                 var circleMarker = new L.circleMarker([points[i].WGS84_LAT, points[i].WGS84_LON],
                     {
-                        color: color1,
-                        fillColor: color2,
+                        color: points[i].color,
+                        fillColor: points[i].color,
                         fillOpacity: 0.5,
                         stopID: points[i]['STATION-ID']
                     })
@@ -263,20 +191,33 @@
                         $rootScope.showArrivalsAfterClickOnStopInMap(e.target.options.stopID)
                     })
                     .addTo(map);
+              if (type == "platform"){
+                geometries.platforms.push(circleMarker);
+              }else{
                 geometries.markers.push(circleMarker);
+              }
+
             }
         };
+        $rootScope.map.addMarkersOfPlatforms = function(data){
+          var points = [];
 
-        $rootScope.map.addMarkerOfPlatform = function(coordinates){
+          for (var i = 0; i < data.length; i++){
+            if (typeof data[i][1].data.monitors[0] == "undefined"){
 
+            }else{
+              var point = {
+                color: $scope.markerColor.platform,
+                NAME: data[i][0],
+                WGS84_LAT: data[i][1].data.monitors[0].locationStop.geometry.coordinates[1],
+                WGS84_LON: data[i][1].data.monitors[0].locationStop.geometry.coordinates[0]
+              };
+              points.push(point);
+            }
+          }
+          console.log(points);
+          $scope.map.addCircleMarkers(points, "platform");
 
-            var marker = new L.marker([coordinates[1],coordinates],
-                {
-                    //icon: geometries.icons[1]
-                })
-                //.bindPopup(points[i].NAME)
-                .addTo(map);
-            geometries.markers.push(marker);
         };
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -289,6 +230,15 @@
                 }
             }
             geometries.markers = [];
+        };
+        $rootScope.map.deleteAllPlatforms = function () {
+          var num = geometries.platforms.length;
+          if (num > 0) {
+            for (var i = 0; i < num; i++) {
+              map.removeLayer(geometries.platforms[i]);
+            }
+          }
+          geometries.platforms = [];
         };
 
         $scope.removeUserLocation = function(){

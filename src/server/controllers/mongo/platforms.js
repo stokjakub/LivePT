@@ -23,7 +23,6 @@ router.get('/getStopPlatformsArrivals', function(req, res){
 populatePlatformsWithApi = function(rbls, callback){
     var aggregation = [];
     for (var i = 0; i < rbls.length; i++){
-        //console.log(rbls[i]);
         var url1 = "http://www.wienerlinien.at/ogd_realtime/monitor?sender=";
         var sender = keys.wldevkey;
         var url = url1 + sender;
@@ -49,8 +48,6 @@ populatePlatformsWithApi = function(rbls, callback){
 router.get('/getMultipleStopsPlatforms', function(req, res){
   var stops = req.param('stops');
   var output = [];
-  console.log(stops);
-  console.log(stops.length);
   if( typeof stops === 'string' ) {
     var stop = JSON.parse(stops);
     getContent(stop);

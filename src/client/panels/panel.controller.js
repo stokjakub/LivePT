@@ -62,7 +62,7 @@
       coordinates = $rootScope.map.getProperties()[1];
 
       $scope.getStopsInArea(coordinates, zoom).then(function (response) {
-        $rootScope.map.addStops(response);
+        $rootScope.map.addStops(response, "stop");
       });
     };
     $scope.getStopsInArea = function (coordinates, zoom) {
@@ -152,10 +152,10 @@
     };
 
     $rootScope.listClosestStops = function (closestStops) {
-      $scope.loadPlatformsOfStops(closestStops, true);
+      $scope.loadPlatformsOfStops(closestStops, true, false);
     };
 
-    $scope.loadPlatformsOfStops = function (closestStops, multiple) {
+    $scope.loadPlatformsOfStops = function (closestStops, multiple, draw) {
       $http.get("/platforms/getMultipleStopsPlatforms", {
           params: {
             stops: closestStops
@@ -164,6 +164,10 @@
         .then(function (response) {
           console.log(response);
           $scope.prepareListOfStops(response.data, multiple);
+          if (draw){
+            $rootScope.map.deleteAllPlatforms();
+            $rootScope.map.addMarkersOfPlatforms(response.data[0].platforms);
+          }
         });
     };
 
@@ -278,10 +282,11 @@
     $scope.showStop = function(stopName){
       for(var i = 0; i < globalstops.length;i++){
         if (stopName == globalstops[i]['NAME']){
-          $scope.loadStopWithAPI(globalstops[i]['STATION-ID']);
+          //$scope.loadStopWithAPI(globalstops[i]['STATION-ID']);
           var coordinates = [globalstops[i]['WGS84_LON'],globalstops[i]['WGS84_LAT']];
           $rootScope.map.locateToPoint(coordinates);
-          $scope.loadPlatformsOfStops([globalstops[i]], false);
+          $scope.loadPlatformsOfStops([globalstops[i]], false, true); // stops, multiple, draw platfroms
+
           break;
         }
       }

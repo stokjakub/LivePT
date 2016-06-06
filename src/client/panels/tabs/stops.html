@@ -12,8 +12,9 @@
     <div ng-repeat="mode in stationList" ng-init="modeIndex = $index">
       <h1>{{filter[modeIndex] | uppercase}}</h1>
       <div ng-repeat="stop in mode">
-        <button ng-click="redirectToStop(stop.name);">{{stop.name}}</button>
-        <div ng-repeat="platform in stop.platforms">
+        <div ng-repeat="platform in stop.platforms" ng-show="platform.lines[0].type == filter[modeIndex]">
+          <button ng-click="zoomToPlatform(platform[0],platform[1].data.monitors[0].locationStop.geometry.coordinates);">
+            To the platform</button>
           <li style="display:inline" ng-repeat="line in platform.lines" ng-show="line.type == filter[modeIndex]">
             {{line.name}}
             {{line.direction}}
