@@ -45,40 +45,7 @@
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    //LOADING STOPS IN AREA USING MAP STATE///////////////////////////////////////////////////////////////////////
-    $scope.loadStopsInAreaToMap = function () {
-      if ($rootScope.loadStopActive == false) {
-        $rootScope.loadStopActive = true;
-        $rootScope.loadStopsInArea();
-      } else {
-        $rootScope.map.deleteAllMarkers();
-        $rootScope.loadStopActive = false;
-      }
-    };
-    $rootScope.loadStopsInArea = function () {
-      var coordinates, zoom;
-      zoom = $rootScope.map.getProperties()[0];
-      coordinates = $rootScope.map.getProperties()[1];
 
-      $scope.getStopsInArea(coordinates, zoom).then(function (response) {
-        //$rootScope.map.deleteAllMarkers();
-        $rootScope.map.deleteAllHighlights();
-        $rootScope.map.addPoints(response, "highlight");
-      });
-    };
-    $scope.getStopsInArea = function (coordinates, zoom) {
-      return $http.get("/stops/getStopsInTheArea", {
-          params: {
-            coordinates: coordinates,
-            zoom: zoom
-          }
-        })
-        .then(function (response) {
-          //data.stops = response.data;
-          //console.log(data);
-          return response.data;
-        })
-    };
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //LOAD APIS OF PLATFORMS OF A STOP/////////////////////////////////////////////////////////////////////////////
@@ -125,6 +92,22 @@
         .then(function (response) {
           return response.data;
         })
+    };
+    $scope.showInterrupt = function(interrupt){
+      if (typeof interrupt.relatedStops === "undefined"){}
+      else{
+        $scope.showStopsOfInterrupt(interrupt);
+      }
+    };
+    $scope.showStopsOfInterrupt = function(interrupt){
+      for(var j = 0; j < interrupt.relatedStops.length; j ++){
+        var stopID = interrupt.relatedStops[j];
+        //console.log(stopID);
+      }
+
+
+
+      //$rootScope.map.addPoints(closestStops,"highlightStop");
     };
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

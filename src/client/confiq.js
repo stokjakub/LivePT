@@ -1,7 +1,6 @@
 var globaldata = {};
 var globalstops = [];
 var globallines = [];
-var geometries = {};
 var api = {};
 map = L.map('map');
 

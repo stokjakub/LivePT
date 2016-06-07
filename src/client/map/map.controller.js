@@ -11,11 +11,12 @@
         $rootScope.map = {}; //for functions used in other controllers
         $scope.map = {}; //for functions used only in this controller
 
-        geometries = {
+        var geometries = {
           markers: [],
           stops: [],
           platforms: [],
-          highlights: []
+          highlights: [],
+          highlightStops: []
         };
 
         $scope.arrivals = [];
@@ -27,7 +28,8 @@
 
         $scope.markerColor = {
             platform: "blue",
-            highlight: "#FFFF00" //yellow
+            highlight: "#FFFF00", //yellow
+            highlightStop: "#FFFF00"
           };
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -137,10 +139,8 @@
               }
             }
             if (closestStops.length > 0){
-              //$rootScope.map.deleteAllMarkers();
-              $rootScope.map.deleteAllHighlights();
-              $rootScope.map.addPoints(closestStops,"highlight");
-
+              $scope.map.deleteAllHighlightStops();
+              $rootScope.map.addPoints(closestStops,"highlightStop");
               $rootScope.listClosestStops(closestStops);
             }
 
@@ -167,6 +167,8 @@
 
         $rootScope.map.addPoints = function(points, type){
 
+
+
             for (var i = 0; i < points.length; i++) {
               if (typeof points[i].color === "undefined"){
                 points[i].color = "red";
@@ -181,6 +183,8 @@
                 points[i].color = $scope.markerColor.highlight;
               }else if (type == "platform"){
                 points[i].color = $scope.markerColor.platform;
+              }else if (type == "highlightStop"){
+                points[i].color = $scope.markerColor.highlightStop;
               }
 
               var circleMarker = new L.circleMarker([points[i].WGS84_LAT, points[i].WGS84_LON],
@@ -194,7 +198,7 @@
                 .setRadius(10)
                 //.bindPopup(points[i].NAME)
                 .on('click', function(e) {
-                  if (type == "stop"){
+                  if (type == "stop" || type == "highlightStop"){
                     $rootScope.redirectToStop(e.target.options.name);
                   }
                 })
@@ -203,6 +207,8 @@
                 geometries.platforms.push(circleMarker);
               }else if (type == "highlight") {
                 geometries.highlights.push(circleMarker);
+              }else if (type == "highlightStop") {
+                geometries.highlightStops.push(circleMarker);
               }else if (type == "stop"){
                 geometries.stops.push(circleMarker);
               }else{
@@ -272,6 +278,15 @@
           if (num > 0) {
             for (var i = 0; i < num; i++) {
               map.removeLayer(geometries.highlights[i]);
+            }
+          }
+          geometries.platforms = [];
+        };
+        $scope.map.deleteAllHighlightStops = function () {
+          var num = geometries.highlightStops.length;
+          if (num > 0) {
+            for (var i = 0; i < num; i++) {
+              map.removeLayer(geometries.highlightStops[i]);
             }
           }
           geometries.platforms = [];
