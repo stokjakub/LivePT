@@ -4,6 +4,7 @@ var keys = require('../../not_shared.json');
 var request = require("request");
 
 var Platforms = require('../../models/platforms');
+var Stops = require('../../models/stops');
 
 router.get('/getStopPlatformsArrivals', function(req, res){
     var stopID = req.param('stopID');
@@ -78,11 +79,20 @@ router.get('/getMultipleStopsPlatforms', function(req, res){
 
   setTimeout(function(){     //todo: this is not very nice
     res.json(output);
-  }, 1000);
-
-
-
+  }, 1500);
 });
+
+
+router.get('/getStopsOfLine', function(req, res){
+  var lineID = req.param('lineID');
+  var output = [];
+  Platforms.find({"FK_LINE_ID": lineID, "DIRECTION": "R"}
+    ,function(err, response){
+      res.json(response)
+    })
+});
+
+
 
 
 // Return the object

@@ -84,6 +84,7 @@
     //LOADING INTERRUPTIONS//////////////////////////////////////////////////////////////////////////////////////
     $scope.loadInterrupt = function () {
       $scope.getInterruptions().then(function (response) {
+        console.log(response.data);
         $scope.interruptions = response.data;
       });
     };
@@ -274,6 +275,55 @@
       }
     };
 
+    //LINE FUNCTIONS////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    $scope.showLine = function(lineName){
+      for(var i = 0; i < globallines.length;i++){
+        if (lineName == globallines[i]['NAME_OF_LINE']){
+          $scope.loadStopsOfLine(globallines[i]['LINE_ID']);
+        }
+      }
+    };
+    $scope.loadStopsOfLine = function(lineID){
+      $http.get("/platforms/getStopsOfLine", {    //TODO: get it with platform info directly
+          params: {
+            lineID: lineID
+          }
+        })
+        .then(function (response) {
+          $scope.loadPlatformsOfStopsWithIDs($scope.sortPlatforms(response.data));
+        });
+    };
+
+    $scope.sortPlatforms = function(platforms){
+      function compare(a,b) {
+        if (a.ORDER < b.ORDER)
+          return -1;
+        else if (a.ORDER > b.ORDER)
+          return 1;
+        else
+          return 0;
+      }
+      return platforms.sort(compare);
+    };
+
+    $scope.loadPlatformsOfStopsWithIDs = function(platforms){
+      //$scope.lineList =
+      var stops = $scope.prepareLineList(platforms);
+      console.log(stops);
+      $scope.loadPlatformsOfStops(stops, false, true);
+    };
+    $scope.prepareLineList = function(platforms){
+      var stops = [];
+      for(var i = 0; i < platforms.length; i++){
+        for (var j =0; j < globalstops.length; j++){
+          if (platforms[i]['FK_STATION_ID'] == globalstops[j]['STATION-ID']){
+            stops.push(globalstops[j]);
+          }
+        }
+      }
+      return stops;
+    };
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //GET STOPS, LINES AND OTHER VITAL DATA////////////////////////////////////////////////////////////////////////
@@ -286,8 +336,8 @@
       $scope.getStops()
         .then(function (response) {
           globalstops = response;
-          $scope.createStopList(globalstops);
-          $rootScope.map.addPoints(globalstops, "stop");
+          $scope.createStopList(response);
+          $rootScope.map.addPoints(response, "stop");
           //console.log(globalstops);
         });
     };
@@ -304,8 +354,19 @@
       $scope.getLines()
         .then(function (response) {
           globallines = response;
+          $scope.createLineList(response);
           //console.log(globallines);
         });
+    };
+    $scope.createLineList = function(globallines){
+      $scope.lineList = [];
+      globallines.forEach(function(lineCurrent){
+        $scope.lineList.push({
+          id: lineCurrent['LINE_ID'],
+          name: lineCurrent['NAME_OF_LINE']
+        });
+      });
+      //console.log($scope.lineList);
     };
 
 

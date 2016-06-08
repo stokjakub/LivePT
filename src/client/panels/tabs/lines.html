@@ -1,5 +1,10 @@
 <div id="lines">
-
+  <form ng-submit="showLine(lineName)">
+    <input list="lineListInput" name="browser2" ng-model="lineName">
+    <datalist id="lineListInput">
+      <option ng-repeat="line in lineList">{{line.name}}</option>
+    </datalist>
+  </form>
 
 
 </div>
