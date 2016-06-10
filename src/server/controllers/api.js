@@ -87,10 +87,16 @@ router.get('/getinterrupt', function(req, res){
 
 
 
-router.get('/getStopApis', function(req, res){
-
-
-
+router.get('/getCar2Go', function(req, res){
+  var url = "https://www.car2go.com/api/v2.1/vehicles?loc=wien&oauth_consumer_key=car2gowebsite&format=json";
+  request({
+    url: url,
+    json: true
+  }, function (error, response, body) {
+    if (!error && response.statusCode === 200) {
+      res.json(body);
+    }
+  });
 });
 
 module.exports = router;

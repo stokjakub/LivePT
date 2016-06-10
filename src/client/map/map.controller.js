@@ -16,7 +16,8 @@
           stops: [],
           platforms: [],
           highlights: [],
-          highlightStops: []
+          highlightStops: [],
+          car2go: []
         };
 
         $scope.arrivals = [];
@@ -29,7 +30,8 @@
         $scope.markerColor = {
             platform: "blue",
             highlight: "#FFFF00", //yellow
-            highlightStop: "#FFFF00"
+            highlightStop: "#FFFF00",
+            car2go: "#01DF01"
           };
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -252,6 +254,42 @@
           }
           $rootScope.map.addPoints(points, "highlight");
         };
+
+
+
+        $rootScope.map.showCar2Go = function (placemarks){
+
+          if (geometries.car2go.length > 0){
+            $scope.map.deleteAllCar2Go();
+          }else{
+            var points = [];
+            for (var i = 0; i < placemarks.length; i++){
+              var popup = "<dl><dt>Address</dt>"
+                + "<dd>" + placemarks[i].address + "</dd>"
+                + "<dt>Interior</dt>"
+                + "<dd>" + placemarks[i].interior + "</dd>"
+                + "<dt>Exterior</dt>"
+                + "<dd>" + placemarks[i].exterior + "</dd>"
+                + "<dt>Fuel</dt>"
+                + "<dd>" + placemarks[i].fuel + "</dd>"
+                + "<dt>Name</dt>"
+                + "<dd>" + placemarks[i].name + "</dd>" + "</dl>";
+              var circleMarker = new L.circleMarker([placemarks[i].coordinates[1], placemarks[i].coordinates[0]],
+                {
+                  color: $scope.markerColor.car2go,
+                  fillColor: $scope.markerColor.car2go,
+                  fillOpacity: 0.5
+                })
+                .setRadius(10)
+                .bindPopup(popup)
+                .addTo(map);
+              geometries.car2go.push(circleMarker);
+            }
+          }
+
+
+
+        };
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         //REMOVING STUFF /////////////////////////////////////////////////////////////////////////////////////////////
@@ -263,6 +301,15 @@
                 }
             }
             geometries.markers = [];
+        };
+        $scope.map.deleteAllCar2Go = function () {
+          var num = geometries.car2go.length;
+          if (num > 0) {
+            for (var i = 0; i < num; i++) {
+              map.removeLayer(geometries.car2go[i]);
+            }
+          }
+          geometries.car2go = [];
         };
         $rootScope.map.deleteAllPlatforms = function () {
           var num = geometries.platforms.length;

@@ -1,6 +1,7 @@
-var globaldata = {};
+
 var globalstops = [];
 var globallines = [];
+var globalcar2go = [];
 var api = {};
 map = L.map('map');
 

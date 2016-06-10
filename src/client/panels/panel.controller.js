@@ -331,7 +331,9 @@
     $scope.loadData = function () {
       $scope.loadStops();
       $scope.loadLines();
+      //$scope.loadCar2Go();
     };
+
     $scope.loadStops = function () {
       $scope.getStops()
         .then(function (response) {
@@ -367,6 +369,14 @@
         });
       });
       //console.log($scope.lineList);
+    };
+
+    $scope.loadCar2Go = function(){
+      $http.get("/api/getCar2Go")
+        .then(function (response) {
+          globalcar2go = response.data.placemarks;
+          $rootScope.map.showCar2Go(response.data.placemarks);
+        });
     };
 
 
