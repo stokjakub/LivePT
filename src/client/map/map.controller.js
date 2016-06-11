@@ -255,6 +255,10 @@
           $rootScope.map.addPoints(points, "highlight");
         };
 
+        $rootScope.map.addHighlightStop = function(stops, type){
+            $scope.map.deleteAllHighlightStops();
+            $rootScope.map.addPoints(stops, type);
+        };
 
 
         $rootScope.map.showCar2Go = function (placemarks){

@@ -308,10 +308,10 @@
     };
 
     $scope.loadPlatformsOfStopsWithIDs = function(platforms){
-      //$scope.lineList =
-      var stops = $scope.prepareLineList(platforms);
-      console.log(stops);
-      $scope.loadPlatformsOfStops(stops, false, true);
+        var stops = $scope.prepareLineList(platforms);
+        //console.log(stops);
+        $rootScope.map.addHighlightStop(stops, "highlightStop");
+
     };
     $scope.prepareLineList = function(platforms){
       var stops = [];
