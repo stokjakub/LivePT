@@ -127,12 +127,14 @@
     };
 
     $scope.loadPlatformsOfStops = function (closestStops, multiple, draw) {
+        console.log(closestStops);
       $http.get("/platforms/getMultipleStopsPlatforms", {
           params: {
             stops: closestStops
           }
         })
         .then(function (response) {
+          console.log(response.data);
           $scope.prepareListOfStops(response.data, multiple);
           if (draw){
             $rootScope.map.deleteAllPlatforms();
@@ -150,6 +152,7 @@
         var output = {
           name: list[i].stop['NAME'],
           id: list[i].stop['STATION-ID'],
+          delayed: 0,
           platforms: []
         };
 
@@ -157,6 +160,7 @@
           var platform = {
             id: list[i].platforms[j][0],
             coordinates: {},
+            delayed: 0,
             lines: []
           };
           if (typeof list[i].platforms[j][1].data === "undefined")
@@ -203,14 +207,20 @@
                 }
                 line.departures.push(departure);
               }
-
+                if(line.delayed > platform.delayed){
+                    platform.delayed = line.delayed;
+                }
               platform.lines.push(line);
             }
           }
+            if(platform.delayed > output.delayed){
+                output.delayed = platform.delayed;
+            }
           output.platforms.push(platform);
         }
         stoplist.push(output);
       }
+      console.log(stoplist);
       $scope.sortStops(stoplist, multiple);
     };
 
@@ -250,7 +260,9 @@
           if (modes.metro == true)$scope.stationList[2].push(stoplist[i]);
         }
       }
+        console.log($scope.lists);
     };
+
     $rootScope.redirectToStop = function(stopName){
       $scope.redirectToStop(stopName);
     };
@@ -311,6 +323,7 @@
         var stops = $scope.prepareLineList(platforms);
         //console.log(stops);
         $rootScope.map.addHighlightStop(stops, "highlightStop");
+        $scope.loadPlatformsOfStops(stops, true, false);
 
     };
     $scope.prepareLineList = function(platforms){
