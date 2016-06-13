@@ -8,14 +8,9 @@
 
 
     <ul>
-        <div ng-repeat="mode in lists" ng-init="modeIndex = $index">
-            <h1>{{filter[modeIndex] | uppercase}}</h1>
-            <div ng-repeat="stop in mode">
-                <button ng-click="redirectToStop(stop.name);">{{stop.name}}</button>
-                {{stop.delayed}}
-            </div>
+        <div ng-repeat="stop in listForLine">
+            <button ng-click="redirectToStop(stop.name);">{{stop.name}}</button>
+            {{stop.delayed}}
         </div>
     </ul>
-
-
 </div>

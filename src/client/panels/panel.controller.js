@@ -127,14 +127,12 @@
     };
 
     $scope.loadPlatformsOfStops = function (closestStops, multiple, draw) {
-        console.log(closestStops);
       $http.get("/platforms/getMultipleStopsPlatforms", {
           params: {
             stops: closestStops
           }
         })
         .then(function (response) {
-          console.log(response.data);
           $scope.prepareListOfStops(response.data, multiple);
           if (draw){
             $rootScope.map.deleteAllPlatforms();
@@ -147,13 +145,15 @@
     };
 
     $scope.prepareListOfStops = function(list, multiple){
-      var stoplist = [];
+        var stoplist = [];
+        console.log(list);
       for (var i = 0; i < list.length; i++){
         var output = {
           name: list[i].stop['NAME'],
           id: list[i].stop['STATION-ID'],
           delayed: 0,
-          platforms: []
+          platforms: [],
+            order: list[i].stop['ORDER']   //used for order in a line
         };
 
         for (var j = 0; j < list[i].platforms.length; j++){
@@ -220,11 +220,15 @@
         }
         stoplist.push(output);
       }
-      console.log(stoplist);
       $scope.sortStops(stoplist, multiple);
     };
 
     $scope.sortStops = function(stoplist, multiple){
+        console.log(stoplist);
+        if (typeof stoplist[0].order  === "undefined"){}
+        else{
+            $scope.listForLine = $scope.orderStopsOfLine(stoplist);    // used in LINES tab to show the stops of the line
+        }
       $scope.filter = ["bus", "tram", "metro"];
       if (multiple){
         $scope.lists = [[],[],[]];
@@ -260,7 +264,6 @@
           if (modes.metro == true)$scope.stationList[2].push(stoplist[i]);
         }
       }
-        console.log($scope.lists);
     };
 
     $rootScope.redirectToStop = function(stopName){
@@ -270,6 +273,18 @@
       $scope.stopName = stopName;
       $scope.$parent.stopTabActive();
       $scope.showStop(stopName);
+    };
+
+    $scope.orderStopsOfLine = function(stopList){
+        function compare(a,b) {
+            if (a.order < b.order)
+                return -1;
+            else if (a.order > b.order)
+                return 1;
+            else
+                return 0;
+        }
+        return stopList.sort(compare);
     };
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //STATIONS FUNCTIONS///////////////////////////////////////////////////////////////////////////////////////////////
@@ -331,10 +346,14 @@
       for(var i = 0; i < platforms.length; i++){
         for (var j =0; j < globalstops.length; j++){
           if (platforms[i]['FK_STATION_ID'] == globalstops[j]['STATION-ID']){
-            stops.push(globalstops[j]);
+              var stop = globalstops[j];
+              stop['ORDER'] = platforms[i].ORDER;
+              stops.push(stop);
+              break;
           }
         }
       }
+        console.log(stops);
       return stops;
     };
 
