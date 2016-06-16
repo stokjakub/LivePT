@@ -84,7 +84,6 @@
     //LOADING INTERRUPTIONS//////////////////////////////////////////////////////////////////////////////////////
     $scope.loadInterrupt = function () {
       $scope.getInterruptions().then(function (response) {
-        console.log(response.data);
         $scope.interruptions = response.data;
       });
     };
@@ -94,21 +93,21 @@
           return response.data;
         })
     };
+
     $scope.showInterrupt = function(interrupt){
-      if (typeof interrupt.relatedStops === "undefined"){}
-      else{
-        $scope.showStopsOfInterrupt(interrupt);
-      }
-    };
-    $scope.showStopsOfInterrupt = function(interrupt){
-      for(var j = 0; j < interrupt.relatedStops.length; j ++){
-        var stopID = interrupt.relatedStops[j];
-        //console.log(stopID);
-      }
 
-
-
-      //$rootScope.map.addPoints(closestStops,"highlightStop");
+        if (typeof interrupt.relatedStops === "undefined"){}
+        else{
+            console.log(interrupt.relatedStops.length);
+            $http.get("/api/getapifromrbls", {
+                    params: {
+                        rbls: interrupt.relatedStops
+                    }
+                })
+                .then(function (response) {
+                    $rootScope.map.addMarkersOfInterrupt(response.data.data.monitors);
+               });
+        }
     };
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -224,11 +223,14 @@
     };
 
     $scope.sortStops = function(stoplist, multiple){
-        console.log(stoplist);
-        if (typeof stoplist[0].order  === "undefined"){}
+        if (typeof stoplist[0]  === "undefined"){}
         else{
-            $scope.listForLine = $scope.orderStopsOfLine(stoplist);    // used in LINES tab to show the stops of the line
+            if (typeof stoplist[0].order  === "undefined"){}
+            else{
+                $scope.listForLine = $scope.orderStopsOfLine(stoplist);    // used in LINES tab to show the stops of the line
+            }
         }
+
       $scope.filter = ["bus", "tram", "metro"];
       if (multiple){
         $scope.lists = [[],[],[]];

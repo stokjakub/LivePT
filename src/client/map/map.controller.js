@@ -290,9 +290,30 @@
               geometries.car2go.push(circleMarker);
             }
           }
+        };
 
 
-
+        $rootScope.map.addMarkersOfInterrupt = function(list){
+            $scope.map.deleteAllHighlightStops();
+            console.log(list);
+            var points = [];
+            for (var i = 0; i < list.length; i++){
+                var name = list[i].locationStop.properties.title;
+                var coordinates = list[i].locationStop.geometry.coordinates;
+                var circleMarker = new L.circleMarker([coordinates[1], coordinates[0]],
+                    {
+                        color: $scope.markerColor.highlightStop,
+                        fillColor: $scope.markerColor.highlightStop,
+                        fillOpacity: 0.5,
+                        name: name
+                    })
+                    .setRadius(10)
+                    .on('click', function(e) {
+                        $rootScope.redirectToStop(e.target.options.name);
+                    })
+                    .addTo(map);
+                geometries.highlightStops.push(circleMarker);
+            }
         };
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

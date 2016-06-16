@@ -41,6 +41,36 @@ router.get('/getoneapi', function(req, res){
     });
 });
 
+router.get('/getapifromrbls', function(req, res){
+    var url1 = "http://www.wienerlinien.at/ogd_realtime/monitor?sender=";
+    //var sender = keys.wldevkey;
+    var sender = keys.wlkey;
+    var url = url1 + sender;
+    var rbls = req.param('rbls');
+    console.log(rbls);
+    if (rbls.constructor === Array){
+        rbls.forEach(function(rbl_current){
+            var rblc = "&rbl=";
+            var rbl = rbl_current;
+            url+= rblc + rbl;
+        });
+    }else{
+        var rblc = "&rbl=";
+        var rbl = rbls;
+        url+= rblc + rbl;
+    }
+
+
+    request({
+        url: url,
+        json: true
+    }, function (error, response, body) {
+            res.json(body);
+    });
+
+});
+
+
 router.get('/reversegeocode', function(req, res){
   var lat = req.param('lat');
   var lng = req.param('lng');

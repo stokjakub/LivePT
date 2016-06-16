@@ -21,7 +21,7 @@ router.get('/getStopPlatformsArrivals', function(req, res){
     })
 });
 
-populatePlatformsWithApi = function(rbls, callback){
+var populatePlatformsWithApi = function(rbls, callback){
     var aggregation = [];
     for (var i = 0; i < rbls.length; i++){
         var url1 = "http://www.wienerlinien.at/ogd_realtime/monitor?sender=";
@@ -41,7 +41,10 @@ populatePlatformsWithApi = function(rbls, callback){
                 }
             }
         });
+
+
     }
+
 
 
 };
