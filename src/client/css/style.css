@@ -216,3 +216,32 @@ h3
     height: 100%;
 }
 
+.modeicon{
+    height: 50px;
+}
+
+.delayicon{
+    height: 30px;
+}
+
+.recordlv1{
+    border-style: solid;
+    border-width: medium;
+    border-color: #797979;
+}
+.recordlv2{
+    border-style: solid;
+    border-width: medium;
+    border-color: #797979;
+}
+.recordlv3{
+    border-style: solid;
+    border-width: medium;
+    border-color: #797979;
+}
+
+ul{
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 0;
+}

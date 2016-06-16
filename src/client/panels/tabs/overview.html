@@ -1,5 +1,4 @@
 <div id="overview">
-
   <div id = "search">
     <div class = "text">YOU ARE HERE:</div>
     <input class = "topinput" type="text" name="input" ng-model="locationname" disabled>
@@ -9,23 +8,27 @@
 
   <input type="button" value="Load Nearest" ng-click="listLocationStops();">
   <input type="button" value="Load Map" ng-click="listMapStops()">
+  <input type="button" value="Load Car2Go" ng-click="loadCar2Go()">
 
   <br>
-
-  PUBLIC TRANSPORT STATIONS
   <br>
-  <!--<img class="icon" src="images/icons/metro.png">-->
 
   <ul>
-    <div ng-repeat="mode in lists" ng-init="modeIndex = $index">
+    <div class="recordlv1" ng-repeat="mode in lists" ng-init="modeIndex = $index">
       <h1>{{filter[modeIndex] | uppercase}}</h1>
-      <div ng-repeat="stop in mode">
+        <img class="modeicon" src="images/bus.png" ng-show="modeIndex==0">
+        <img class="modeicon" src="images/tram.png" ng-show="modeIndex==1">
+        <img class="modeicon" src="images/u-bahn.png" ng-show="modeIndex==2">
+
+      <div class="recordlv2" ng-repeat="stop in mode">
         <button ng-click="redirectToStop(stop.name);">{{stop.name}}</button>
         <div ng-repeat="platform in stop.platforms">
-          <li style="display:inline" ng-repeat="line in platform.lines" ng-show="line.type == filter[modeIndex]">
+          <li  class="recordlv3" style="display:inline" ng-repeat="line in platform.lines" ng-show="line.type == filter[modeIndex]">
             {{line.name}}
             {{line.direction}}
-            {{line.delayed}}
+              <img class="delayicon" src="images/green.png" ng-show="line.delayed==0">
+              <img class="delayicon" src="images/yellow.png" ng-show="line.delayed==1">
+              <img class="delayicon" src="images/red.png" ng-show="line.delayed==2">
             <ul>
               <li style="display:inline" ng-repeat="departure in line.departures | limitTo: 3">
                 {{departure.countdown}}
@@ -36,11 +39,6 @@
       </div>
     </div>
   </ul>
-
-
-  <br>
-  <br>
-  <input type="button" value="Load Car2Go" ng-click="loadCar2Go()">
 
 
 </div>
