@@ -5,35 +5,41 @@
   </div>
 
   <br>
+    <div style="margin-left: 20px;">
+        <input class="button button3" type="button" value="LOAD NEAREST" ng-click="listLocationStops();">
+        <input class="button button3" type="button" value="LOAD FROM MAP CENTER" ng-click="listMapStops()">
+        <input class="button button3" type="button" value="LOAD CAR2GO" ng-click="loadCar2Go()">
+    </div>
 
-  <input type="button" value="Load Nearest" ng-click="listLocationStops();">
-  <input type="button" value="Load Map" ng-click="listMapStops()">
-  <input type="button" value="Load Car2Go" ng-click="loadCar2Go()">
 
   <br>
   <br>
 
   <ul>
     <div class="recordlv1" ng-repeat="mode in lists" ng-init="modeIndex = $index">
-      <h1>{{filter[modeIndex] | uppercase}}</h1>
-        <img class="modeicon" src="images/bus.png" ng-show="modeIndex==0">
-        <img class="modeicon" src="images/tram.png" ng-show="modeIndex==1">
-        <img class="modeicon" src="images/u-bahn.png" ng-show="modeIndex==2">
+      <!--<h1>{{filter[modeIndex] | uppercase}}</h1>-->
+        <div class="recordheading">
+            <img class="modeicon" src="images/bus.png" ng-show="modeIndex==0">
+            <img class="modeicon" src="images/tram.png" ng-show="modeIndex==1">
+            <img class="modeicon" src="images/u-bahn.png" ng-show="modeIndex==2">
+            <h2 ng-show="modeIndex==0">Bus</h2>
+            <h2 ng-show="modeIndex==1">Tram</h2>
+            <h2 ng-show="modeIndex==2">U-Bahn</h2>
+        </div>
 
       <div class="recordlv2" ng-repeat="stop in mode">
-        <button ng-click="redirectToStop(stop.name);">{{stop.name}}</button>
-        <div ng-repeat="platform in stop.platforms">
+        <button class="button button4" ng-click="redirectToStop(stop.name);">{{stop.name}}</button>
+          |
+        <div style="display: inline-block;" ng-repeat="platform in stop.platforms">
           <li  class="recordlv3" style="display:inline" ng-repeat="line in platform.lines" ng-show="line.type == filter[modeIndex]">
-            {{line.name}}
-            {{line.direction}}
+
+              {{line.name}}
+              <img class="arrowicon" src="images/arrow.png">
+              {{line.direction}}
+
               <img class="delayicon" src="images/green.png" ng-show="line.delayed==0">
               <img class="delayicon" src="images/yellow.png" ng-show="line.delayed==1">
               <img class="delayicon" src="images/red.png" ng-show="line.delayed==2">
-            <ul>
-              <li style="display:inline" ng-repeat="departure in line.departures | limitTo: 3">
-                {{departure.countdown}}
-              </li>
-            </ul>
           </li>
         </div>
       </div>

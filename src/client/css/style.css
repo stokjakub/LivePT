@@ -26,7 +26,7 @@ body
     height:          80px;
     float:            left;
     /*background-color: #000000;*/
-    background-color: #d5d5d5;
+    background-color: #d9d9d9;
 }
 #imglogo{
     position: absolute;
@@ -116,6 +116,7 @@ body
     padding-top:      0px;
     padding-bottom:   5px;
     overflow:         scroll;
+    background-color: #d9d9d9;
 }
 
 
@@ -173,14 +174,13 @@ h1
 
 h2
 {
-    margin:          0;
+    margin-left:     10px;
     display:         inline;
     position:        relative;
-    top:             -1.5em;
-    left:            2em;
-    font-size:       1.8em;
-    font-weight:     normal;
-    color:           #94c258;
+    font-size:       3em;
+    font-weight:     bold;
+    color: #797979;
+    bottom: 15px;
 }
 
 h3
@@ -217,27 +217,33 @@ h3
 }
 
 .modeicon{
+    margin: 5px 5px 5px 5px;
     height: 50px;
 }
 
 .delayicon{
-    height: 30px;
+    height: 10px;
+}
+.arrowicon{
+    height: 20px;
+}
+.recordheading{
+
+    background-color: #ffffff;
+    display: inline-block;
+    border-radius: 15px;
 }
 
 .recordlv1{
-    border-style: solid;
-    border-width: medium;
-    border-color: #797979;
+    margin: 5px 5px 5px 5px;
+    background-color: #ffffff;
+    border-radius: 15px;
 }
 .recordlv2{
-    border-style: solid;
-    border-width: medium;
-    border-color: #797979;
+
 }
 .recordlv3{
-    border-style: solid;
-    border-width: medium;
-    border-color: #797979;
+
 }
 
 ul{
@@ -245,3 +251,37 @@ ul{
     margin-right: 10px;
     padding-left: 0;
 }
+
+.button {
+    font-weight:     bold;
+    background-color: #4CAF50; /* Green */
+    border-radius: 10px;
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button3 {
+    background-color: #d9d9d9;
+    color: #797979;
+    border: 2px solid #797979;
+}
+
+.button3:hover {
+    background-color: #ffcc33;
+    color: #3f3f3f;
+}
+
+.button4 {
+    background-color: #ffffff;
+    color: #797979;
+    border: 2px solid #797979;
+}
+
+.button4:hover {background-color: #d9d9d9;}
