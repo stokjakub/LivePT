@@ -4,7 +4,9 @@
     <list default="true" id="bad46263-9c9c-41dd-9d14-a9aeaddc6ee4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/css/style.css" afterPath="$PROJECT_DIR$/src/client/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/panels/panel.controller.js" afterPath="$PROJECT_DIR$/src/client/panels/panel.controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/panels/tabs/overview.html" afterPath="$PROJECT_DIR$/src/client/panels/tabs/overview.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/panels/tabs/stops.html" afterPath="$PROJECT_DIR$/src/client/panels/tabs/stops.html" />
     </list>
     <ignored path="LivePT.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,8 +32,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.448276">
-              <caret line="227" column="14" selection-start-line="227" selection-start-column="14" selection-end-line="227" selection-end-column="14" />
+            <state vertical-scroll-proportion="-10.0">
+              <caret line="332" column="17" selection-start-line="332" selection-start-column="17" selection-end-line="332" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -40,12 +42,11 @@
       <file leaf-file-name="overview.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/client/panels/tabs/overview.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.62992126">
-              <caret line="37" column="32" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.22497188">
+              <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#ul#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#li#0;n#div#0;n#div#1;n#div#0;n#ul#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#ul#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -54,19 +55,11 @@
       <file leaf-file-name="stops.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/panels/tabs/stops.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.103448">
-              <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.5172415">
-              <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="16" selection-end-column="25" />
-              <folding />
+            <state vertical-scroll-proportion="-6.8965516">
+              <caret line="10" column="97" selection-start-line="10" selection-start-column="97" selection-end-line="10" selection-end-column="97" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#ul#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -75,7 +68,7 @@
         <entry file="file://$PROJECT_DIR$/src/client/panels/panel.controller.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="254" column="33" selection-start-line="254" selection-start-column="33" selection-end-line="254" selection-end-column="33" />
+              <caret line="269" column="6" selection-start-line="269" selection-start-column="6" selection-end-line="269" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -149,7 +142,6 @@
         <option value="$PROJECT_DIR$/src/server/controllers/mongo/lines.js" />
         <option value="$PROJECT_DIR$/src/client/panels/tabs/tabscontrol.js" />
         <option value="$PROJECT_DIR$/src/client/index.html" />
-        <option value="$PROJECT_DIR$/src/client/panels/tabs/stops.html" />
         <option value="$PROJECT_DIR$/src/client/panels/tabs/interruptions.html" />
         <option value="$PROJECT_DIR$/src/client/confiq.js" />
         <option value="$PROJECT_DIR$/src/client/panels/tabs/lines.html" />
@@ -157,8 +149,9 @@
         <option value="$PROJECT_DIR$/src/client/map/map.controller.js" />
         <option value="$PROJECT_DIR$/src/server/controllers/mongo/platforms.js" />
         <option value="$PROJECT_DIR$/src/client/panels/panel.controller.js" />
-        <option value="$PROJECT_DIR$/src/client/css/style.css" />
         <option value="$PROJECT_DIR$/src/client/panels/tabs/overview.html" />
+        <option value="$PROJECT_DIR$/src/client/panels/tabs/stops.html" />
+        <option value="$PROJECT_DIR$/src/client/css/style.css" />
       </list>
     </option>
   </component>
@@ -205,7 +198,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -446,6 +438,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -795,7 +788,13 @@
       <option name="project" value="LOCAL" />
       <updated>1466075489692</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="styling in progress">
+      <created>1466118645070</created>
+      <option name="number" value="00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1466118645070</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -808,20 +807,20 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875264" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280757" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16837482" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280757" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -838,7 +837,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="loading platforms using stop id" />
     <MESSAGE value="added logo" />
     <MESSAGE value="loading enhancment" />
     <MESSAGE value="logo deleted" />
@@ -863,7 +861,8 @@
     <MESSAGE value="lines functions done" />
     <MESSAGE value="interrupt functions done" />
     <MESSAGE value="start of styling" />
-    <option name="LAST_COMMIT_MESSAGE" value="start of styling" />
+    <MESSAGE value="styling in progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="styling in progress" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1166,37 +1165,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/panels/tabs/stops.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.103448">
-          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.5172415">
-          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="16" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/map/map.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.50108933">
           <caret line="182" column="15" selection-start-line="182" selection-start-column="15" selection-end-line="182" selection-end-column="15" />
-          <folding>
-            <marker date="1465812725124" expanded="true" signature="10140:10601" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/panels/panel.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="254" column="33" selection-start-line="254" selection-start-column="33" selection-end-line="254" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1208,22 +1180,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6896552">
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="16" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/panels/panel.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="269" column="6" selection-start-line="269" selection-start-column="6" selection-end-line="269" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/panels/tabs/stops.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.8965516">
+          <caret line="10" column="97" selection-start-line="10" selection-start-column="97" selection-end-line="10" selection-end-column="97" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#ul#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.448276">
-          <caret line="227" column="14" selection-start-line="227" selection-start-column="14" selection-end-line="227" selection-end-column="14" />
+        <state vertical-scroll-proportion="-10.0">
+          <caret line="332" column="17" selection-start-line="332" selection-start-column="17" selection-end-line="332" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client/panels/tabs/overview.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62992126">
-          <caret line="37" column="32" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.22497188">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#ul#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#0;n#div#0;n#div#1;n#div#0;n#ul#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#ul#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

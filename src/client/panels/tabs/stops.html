@@ -1,34 +1,47 @@
 <div id="stops">
 
-  <form ng-submit="showStop(stopName)">
-    <input list="stopListInput" name="browser" ng-model="stopName">
-    <datalist id="stopListInput">
-      <option ng-repeat="stop in stopList">{{stop.name}}</option>
-    </datalist>
-  </form>
 
-
-  <ul>
-    <div ng-repeat="mode in stationList" ng-init="modeIndex = $index">
-      <h1>{{filter[modeIndex] | uppercase}}</h1>
-      <div ng-repeat="stop in mode">
-        <div ng-repeat="platform in stop.platforms" ng-show="platform.lines[0].type == filter[modeIndex]">
-          <button ng-click="zoomToPlatform(platform);">
-            To the platform</button>
-          <li style="display:inline" ng-repeat="line in platform.lines" ng-show="line.type == filter[modeIndex]">
-            {{line.name}}
-            {{line.direction}}
-            {{line.delayed}}
-            <ul>
-              <li style="display:inline" ng-repeat="departure in line.departures | limitTo: 3">
-                {{departure.countdown}}
-              </li>
-            </ul>
-          </li>
-        </div>
-      </div>
+    <div id = "search">
+        <div class = "text">STATION NAME:</div>
+        <form ng-submit="showStop(stopName)">
+            <input class="stopinput" list="stopListInput" name="browser" ng-model="stopName">
+            <datalist id="stopListInput">
+                <option ng-repeat="stop in stopList">{{stop.name}}</option>
+            </datalist>
+            <input class="button button3" type="button" value="SHOW" ng-click="showStop(stopName)">
+        </form>
     </div>
-  </ul>
+
+
+    <ul>
+        <div class="recordlv1" ng-repeat="mode in stationList" ng-init="modeIndex = $index" ng-hide="mode.length == 0">
+            <!--<h1>{{filter[modeIndex] | uppercase}}</h1>-->
+            <div class="recordheading">
+                <img class="modeicon" src="images/bus.png" ng-show="modeIndex==0">
+                <img class="modeicon" src="images/tram.png" ng-show="modeIndex==1">
+                <img class="modeicon" src="images/u-bahn.png" ng-show="modeIndex==2">
+                <h2 ng-show="modeIndex==0">Bus</h2>
+                <h2 ng-show="modeIndex==1">Tram</h2>
+                <h2 ng-show="modeIndex==2">U-Bahn</h2>
+            </div>
+            <div class="recordlv2" ng-repeat="stop in mode">
+                <div class="platform" ng-repeat="platform in stop.platforms" ng-show="platform.lines[0].type == filter[modeIndex]">
+                    <button class="button button4" ng-click="zoomToPlatform(platform);">SHOW PLATFORM</button>
+                    <div class="recordlv3" style="display:inline" ng-repeat="line in platform.lines" ng-show="line.type == filter[modeIndex]">
+                        <div class="linename"> {{line.name}}</div>
+                        <img class="arrowicon stationsicons" src="images/arrow.png">
+                        <div class="linedirection">{{line.direction}} </div>
+                        <img class="delayicon stationsicons" src="images/green.png" ng-show="line.delayed==0">
+                        <img class="delayicon stationsicons" src="images/yellow.png" ng-show="line.delayed==1">
+                        <img class="delayicon stationsicons" src="images/red.png" ng-show="line.delayed==2">
+                        <div class="platformcountdown" ng-repeat="departure in line.departures | limitTo: 3">
+                                {{departure.countdown}}&nbsp;&nbsp;
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ul>
   <!--
     <div ng-repeat="platform in stopApis">
         <ul>

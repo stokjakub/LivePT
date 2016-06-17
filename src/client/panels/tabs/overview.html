@@ -6,17 +6,13 @@
 
   <br>
     <div style="margin-left: 20px;">
-        <input class="button button3" type="button" value="LOAD NEAREST" ng-click="listLocationStops();">
-        <input class="button button3" type="button" value="LOAD FROM MAP CENTER" ng-click="listMapStops()">
-        <input class="button button3" type="button" value="LOAD CAR2GO" ng-click="loadCar2Go()">
+        <input class="button button3" type="button" value="SHOW NEAREST" ng-click="listLocationStops();">
+        <input class="button button3" type="button" value="SHOW MAP CENTER" ng-click="listMapStops()">
+        <input class="button button3" type="button" value="SHOW CAR2GO" ng-click="loadCar2Go()">
     </div>
 
-
-  <br>
-  <br>
-
   <ul>
-    <div class="recordlv1" ng-repeat="mode in lists" ng-init="modeIndex = $index">
+    <div class="recordlv1" ng-repeat="mode in lists" ng-init="modeIndex = $index" ng-hide="mode.length == 0">
       <!--<h1>{{filter[modeIndex] | uppercase}}</h1>-->
         <div class="recordheading">
             <img class="modeicon" src="images/bus.png" ng-show="modeIndex==0">
@@ -29,18 +25,15 @@
 
       <div class="recordlv2" ng-repeat="stop in mode">
         <button class="button button4" ng-click="redirectToStop(stop.name);">{{stop.name}}</button>
-          |
-        <div style="display: inline-block;" ng-repeat="platform in stop.platforms">
-          <li  class="recordlv3" style="display:inline" ng-repeat="line in platform.lines" ng-show="line.type == filter[modeIndex]">
-
-              {{line.name}}
+        <div class="platform" ng-repeat="platform in stop.platforms">
+          <div class="recordlv3" style="display:inline" ng-repeat="line in platform.lines" ng-show="line.type == filter[modeIndex]">
+              <div class="linename"> {{line.name}}</div>
               <img class="arrowicon" src="images/arrow.png">
-              {{line.direction}}
-
+              <div class="linedirection">{{line.direction}} </div>
               <img class="delayicon" src="images/green.png" ng-show="line.delayed==0">
               <img class="delayicon" src="images/yellow.png" ng-show="line.delayed==1">
               <img class="delayicon" src="images/red.png" ng-show="line.delayed==2">
-          </li>
+          </div>
         </div>
       </div>
     </div>

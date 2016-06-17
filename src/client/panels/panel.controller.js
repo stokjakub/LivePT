@@ -266,6 +266,7 @@
           if (modes.metro == true)$scope.stationList[2].push(stoplist[i]);
         }
       }
+        console.log($scope.stationList);
     };
 
     $rootScope.redirectToStop = function(stopName){
