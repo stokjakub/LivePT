@@ -20,11 +20,8 @@
             title: 'STATUS UPDATES',
             url: 'panels/tabs/interruptions.html'
         },{
-            title: 'EXTRAS',
-            url: ' panels/tabs/arrivals.html'
-        },{
             title: 'HELP',
-            url: ' panels/tabs/charts.html'
+            url: ' panels/tabs/help.html'
         }];
 
         $scope.currentTab = 'panels/tabs/overview.html';

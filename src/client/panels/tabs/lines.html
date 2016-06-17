@@ -1,16 +1,23 @@
 <div id="lines">
-  <form ng-submit="showLine(lineName)">
-    <input list="lineListInput" name="browser2" ng-model="lineName">
-    <datalist id="lineListInput">
-      <option ng-repeat="line in lineList">{{line.name}}</option>
-    </datalist>
-  </form>
+
+    <div id = "search">
+        <div class = "text">LINE NAME:</div>
+        <form ng-submit="showLine(lineName)">
+            <input class="lineinput" list="lineListInput" name="browser2" ng-model="lineName">
+            <datalist id="lineListInput">
+                <option ng-repeat="line in lineList">{{line.name}}</option>
+            </datalist>
+            <input class="button button3" type="button" value="SHOW" ng-click="showLine(lineName)">
+        </form>
+    </div>
 
 
-    <ul>
-        <div ng-repeat="stop in listForLine">
-            <button ng-click="redirectToStop(stop.name);">{{stop.name}}</button>
-            {{stop.delayed}}
+    <div class="recordlv1" style="text-align: center;">
+        <div class="recordlv2" ng-repeat="stop in listForLine">
+            <button class="button button4" ng-click="redirectToStop(stop.name);">{{stop.name}}</button>
+            <img class="delayicon stationsicons" src="images/green.png" ng-show="stop.delayed==0">
+            <img class="delayicon stationsicons" src="images/yellow.png" ng-show="stop.delayed==1">
+            <img class="delayicon stationsicons" src="images/red.png" ng-show="stop.delayed==2">
         </div>
-    </ul>
+    </div>
 </div>

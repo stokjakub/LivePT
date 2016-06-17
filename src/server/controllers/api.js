@@ -47,7 +47,6 @@ router.get('/getapifromrbls', function(req, res){
     var sender = keys.wlkey;
     var url = url1 + sender;
     var rbls = req.param('rbls');
-    console.log(rbls);
     if (rbls.constructor === Array){
         rbls.forEach(function(rbl_current){
             var rblc = "&rbl=";

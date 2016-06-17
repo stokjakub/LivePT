@@ -85,6 +85,7 @@
     $scope.loadInterrupt = function () {
       $scope.getInterruptions().then(function (response) {
         $scope.interruptions = response.data;
+          console.log(response.data);
       });
     };
     $scope.getInterruptions = function () {
@@ -266,7 +267,6 @@
           if (modes.metro == true)$scope.stationList[2].push(stoplist[i]);
         }
       }
-        console.log($scope.stationList);
     };
 
     $rootScope.redirectToStop = function(stopName){

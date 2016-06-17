@@ -1,36 +1,10 @@
 <div id="interruptions">
 
-    <input type="button" value="Press to load interruptions" ng-click="loadInterrupt()">
+    <input class="button button3" style="margin-left: 20px;" type="button" value="SHOW UPDATES" ng-click="loadInterrupt();">
 
-    <br>
-    <br>
-    <div ng-repeat="interrupt in interruptions.trafficInfos">
-        <ul>
-            <li>Title</li>
-            <ul>
-                <li>
-                  <button ng-click="showInterrupt(interrupt);">{{interrupt.title}}</button>
-                </li>
-            </ul>
-            <li>Description</li>
-            <ul>
-                <li>{{interrupt.description}}</li>
-            </ul>
-            <li>Time</li>
-            <ul>
-                <li>{{interrupt.time.start}}</li>
-                <li>{{interrupt.time.end}}</li>
-            </ul>
-            <li ng-show="interrupt.relatedStops">Related Stops</li>
-            <ul>
-                <li ng-repeat="stop in interrupt.relatedStops">{{stop}}</li>
-            </ul>
-            <li ng-show="interrupt.relatedLines">Related lines</li>
-            <ul>
-                <li ng-repeat="line in interrupt.relatedLines">{{line}}</li>
-            </ul>
-        </ul>
+    <div class="recordlv1" ng-repeat="interrupt in interruptions.trafficInfos" ng-show="interrupt.relatedStops.length > 1">
+        <button class="button button4" ng-click="showInterrupt(interrupt);">{{interrupt.title}}</button>
         <br>
-        <br>
+        <div class="updateinfo">{{interrupt.description}}</div>
     </div>
 </div>

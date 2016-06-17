@@ -128,11 +128,14 @@ body
     padding: 0 0 0 0;
 }
 
-p { color: #505050;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 12px;
-    line-height: 25px;
-    margin: 0 0 20px;
+p {
+    color: #797979;
+    padding: 2px 2px 2px 2px;
+    margin-left: 15px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
 }
 
 #search {
@@ -153,6 +156,8 @@ input.topinput{
   border-radius:   15px;
   font-family:     Arial;
   font-size:       14px;
+    color: #797979;
+    background-color: #ffffff;
   width: 250px;
 }
 
@@ -302,7 +307,7 @@ ul{
 
 .linename{
     padding-left: 5px;
-    color : #3f3f3f;
+    color : #797979;
     display: inline-block;
     font-size: 15px;
     padding-bottom: 5px;
@@ -311,7 +316,7 @@ ul{
 }
 
 .linedirection{
-    color : #3f3f3f;
+    color : #797979;
     display: inline-block;
     font-size: 13px;
     bottom: 10px;
@@ -319,6 +324,7 @@ ul{
 }
 
 .platform{
+    color : #797979;
     padding: 2px 2px 2px 2px;
     margin: 3px 3px 3px 3px;
     display: inline-block;
@@ -327,12 +333,34 @@ ul{
 }
 
 .stopinput{
+    font-size: 15px;
+    color : #797979;
     margin-top: 12px;
     margin-left: 15px;
     border-radius: 10px;
     width: 180px;
 }
 
+
+.lineinput{
+    font-size: 15px;
+    color : #797979;
+    margin-top: 12px;
+    margin-left: 15px;
+    border-radius: 10px;
+    width: 180px;
+}
+
+
+.updateinfo{
+    padding: 2px 2px 2px 2px;
+    margin-left: 15px;
+    color : #797979;
+    display: inline-block;
+    font-size: 13px;
+    bottom: 10px;
+    font-weight: bold;
+}
 .platformcountdown{
     display: inline-block;
     color : #3f3f3f;
