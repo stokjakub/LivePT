@@ -196,10 +196,10 @@
                   timeReal: new Date(list[i].platforms[j][1].data.monitors[0].lines[k].departures.departure[l].departureTime.timeReal),
                   delayed: 0
                 };
-                if (departure.timeReal - departure.timePlanned >= 60000){
+                if (departure.timeReal - departure.timePlanned >= 120000){
                   departure.delayed = 1;
                 }
-                if (departure.timeReal - departure.timePlanned >= 120000){
+                if (departure.timeReal - departure.timePlanned >= 300000){
                   departure.delayed = 2;
                 }
                 if(departure.delayed > line.delayed){
